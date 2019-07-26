@@ -1,0 +1,12 @@
+<dm  initsize="586,436" minsize="586,436" maxsize="-1,-1" bresize="0" btranslucent="0" alpha="255">
+	<root name="license_frame" bvisible="1">
+		<window name="wnd_install_license" skin="bg_install_license" bvisible="1" pos="0,0,-0,-0"> <!-- 安装协议窗口 -->
+			<static name="label_install_title" pos="14,13,%60,@20" clrtext="rgba(ff,ff,ff,ff)"
+				align="left" font="size:15,weight:700,bold:1" valign="top" text="YY游戏大厅"></static>
+  			<button name="btn_close" skin="btn_close" pos="533,3" possize="-1,-1"></button>
+  			<richedit name="edit_install_license" pos="15,50,@555,@328" breadonly="1" sbskin="license_scrollbar" arrowwidth="0"
+  				font="size:18,weight:400" bmultilines="1" bvscroll="1" bwordWrap="1"  bautovscroll="1"  bhscroll="1"></richedit>
+  			<button name="btn_ok" skin="btn_ok" pos="244,392" possize="-1,-1"></button>
+  		</window>
+	</root>
+</dm>

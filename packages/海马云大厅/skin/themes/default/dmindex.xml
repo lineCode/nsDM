@@ -1,0 +1,39 @@
+<resource>  
+	<PNG>
+		<!--  安装界面                    -->
+		<file name="bg_install_main"      path="themes\default\images\bg_install_main.png"></file>
+		<file name="bg_install_license"   path="themes\default\images\bg_install_license.png"></file>
+		<!-- <file name="bg_preInstall"        path="themes\default\images\bg_preInstall.png"></file> -->
+		<file name="bg_installing"        path="themes\default\images\bg_installing.png"></file>
+		<file name="bg_afterInstall"      path="themes\default\images\bg_afterInstall.png"></file>
+		<file name="btn_ok"               path="themes\default\images\btn_ok.png"/>
+		<file name="btn_explorer"         path="themes\default\images\btn_explorer.png"/>
+		<file name="btn_start_client"     path="themes\default\images\btn_start_client.png"/>
+		<file name="btn_close"            path="themes\default\images\btn_close.png"/>
+		<file name="btn_checkbox"         path="themes\default\images\btn_checkbox.png"/>
+		<file name="btn_install"          path="themes\default\images\btn_install.png"/>
+		<file name="progress_channel"     path="themes\default\images\progress_channel.png"/>
+		<file name="progress_over"        path="themes\default\images\progress_over.png"/>
+<!-- 		<file name="btn_turned_right"     path="themes\default\images\btn_turned_right.png"/>
+		<file name="btn_turned_down"      path="themes\default\images\btn_turned_down.png"/> -->
+		<file name="division_line"        path="themes\default\images\division_line.png"/>
+		<file name="license_scrollbar"    path="themes\default\images\license_scrollbar.png" />
+		<file name="btn_checkbox_custom_install" path="themes\default\images\btn_checkbox_custom_install.png" />
+
+		<!--  卸载界面                    -->
+		<file name="bg_uninstall_main"    path="themes\default\images\bg_uninstall_main.png"></file>
+		<file name="bg_uninstalling"      path="themes\default\images\bg_uninstalling.png"></file>
+		<file name="bg_afterUninstall"    path="themes\default\images\bg_afterUninstall.png"></file>
+		<file name="btn_commit"           path="themes\default\images\btn_commit.png"/>
+		<file name="btn_uninstall_ok"     path="themes\default\images\btn_uninstall_ok.png"/>
+		<file name="btn_uninstall_cancel" path="themes\default\images\btn_uninstall_cancel.png"/>
+		<file name="btn_cancel"           path="themes\default\images\btn_cancel.png"/>
+		<file name="btn_retry"            path="themes\default\images\btn_retry.png"/>
+		<file name="btn_checkbox_download_client"            path="themes\default\images\btn_checkbox_download_client.png"/>
+
+		<!-- 通用控件                     -->
+		<file name="edit_border"          path="themes\default\images\edit_border.png"/>
+		<file name="bg_messagebox"        path="themes\default\images\bg_messagebox.png"></file>
+
+	</PNG>
+</resource>

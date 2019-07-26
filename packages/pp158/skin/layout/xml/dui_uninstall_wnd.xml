@@ -1,0 +1,42 @@
+<dm  initsize="586,436" minsize="586,436" maxsize="-1,-1" bresize="0" btranslucent="1" alpha="255" title="YY游戏大厅卸载程序">
+  <root name="uninstall_frame" bvisible="1">
+  	<window name="uninstall_frame" pos="0,0,-0,-0" bvisible="1" bdrag="1">
+  		<window name="wnd_uninstall_main" pos="0,0,-0,-0" skin="bg_uninstall_main" bdrag="1" bvisible="1"> <!-- 卸载窗口 -->
+        <button name="btn_uninstall_cancel" pos="98,352" possize="-1,-1" skin="btn_uninstall_cancel" ></button>
+  			<button name="btn_uninstall_ok" pos="303,352" possize="-1,-1" skin="btn_uninstall_ok" ></button>
+  		</window>
+  	
+  		<window name="wnd_uninstallling" pos="0,0,-0,-0" skin="bg_uninstalling" bdrag="1" bvisible="0">  <!-- 卸载过程窗口 -->
+  			<processCtrl name="progress_uninstalling" pos="41,373,@503,@8" bvert="0" range="0,100" value="0"
+  				bShowTip="0" selskin="progress_over" channelskin="progress_channel"></processCtrl>
+  			<static pos="41,394" possize="-1,-1" text="正在卸载, 请稍后... ..."></static>
+  		</window>
+  		
+  		<window name="wnd_uninstalled" pos="0,0,-0,-0" skin="bg_afterUninstall" bdrag="1" bvisible="0">  <!-- 卸载完成窗口 -->
+        <static pos="15,244" possize="-1,-1" text="您卸载YY游戏大厅的原因:"></static>
+        <checkbox name="btn_reason_reinstall" pos="15,274" possize="160,18" text="版本升级重新安装" 
+          checkskin="btn_checkbox" align="left" textoffset="5"/>
+        <checkbox name="btn_reason_no_love" pos="210,274" possize="140,18" text="界面风格不喜欢" 
+          checkskin="btn_checkbox" align="left" textoffset="5"/>
+        <checkbox name="btn_reason_no_game" pos="414,274" possize="100,18" text="不玩游戏了" 
+          checkskin="btn_checkbox" align="left" textoffset="5"/>
+        <checkbox name="btn_reason_performance" pos="15,302" possize="180,18" text="玩游戏卡机、很慢等" 
+          checkskin="btn_checkbox" align="left" textoffset="5"/>
+
+        <static pos="15,330" possize="-1,-1" text="其他原因或建议:" valign="middle"></static>
+        <edit name="edit_reason" style="global-style-edit" pos="126,329,@369,@24" skin="edit_border" ballowbeep="1" 
+            valign="middle"></edit>
+
+  			<button name="btn_commit" skin="btn_commit" pos="191,371" possize="-1,-1"></button>
+
+        <checkbox name="btn_download_client" pos="496,385,@85,@18" text="重新下载" clrtext="rgba(30,9b,df,ff)"
+          checkskin="btn_checkbox_download_client" brightbox="1" align="right" textoffset="5" font="size:12" />
+  		</window>
+      
+  	</window>
+    <static name="label_install_title" pos="14,13,%60,@20" font="size:15,weight:700,bold:1"
+        clrtext="rgba(ff,ff,ff,ff)" align="left" valign="top" text="YY游戏大厅"></static>
+    <button name="btn_close" skin="btn_close" pos="533,3" possize="-1,-1"></button>
+
+  </root>
+</dm>

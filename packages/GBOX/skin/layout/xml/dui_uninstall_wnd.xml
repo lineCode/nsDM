@@ -1,0 +1,54 @@
+<dm  initsize="640,400" minsize="640,400" maxsize="-1,-1" bresize="0" btranslucent="1" alpha="255" title="GBox卸载">
+  <root name="uninstall_frame" bvisible="1">
+  	<window name="uninstall_frame" pos="0,0,-0,-0" bvisible="1" bdrag="1">
+  		<window name="wnd_uninstallling" pos="0,0,-0,-0" skin="bg_uninstalling" bdrag="1" bvisible="0">  <!-- 卸载过程窗口 -->
+  			<processCtrl name="progress_uninstalling" pos="40,350,@558,@24" bvert="0" range="0,100" value="0"
+  				bShowTip="0" selskin="progress_over" channelskin="progress_channel"></processCtrl>
+			<static pos="50,324" possize="-1,-1" text="正在卸载GBox"></static>
+			<static name="label_install_percent" pos="-113,324,@60,@20" clrtext="rgba(7b,7b,7b,dd)" align="right" text="0%"></static>
+  		</window>
+  		
+  		<window name="wnd_uninstall_main" pos="0,0,-0,-0" skin="bg_afterUninstall" bdrag="1" bvisible="1">  <!-- 卸载窗口 -->
+        <static pos="0,28,-0,110" text="很抱歉，我们的产品没能让您满意 T∧T" font="face:微软雅黑,size:24" clrtext="rgba(ff,ff,ff,ff)"/>
+		<static pos="42,125" style="style_text_gray" possize="-1,-1" text="请告诉我们卸载的原因，我们会努力做得更好:"></static>
+        <checkbox textoffset="5" checkskin="btn_checkbox2" name="btn_reason_reinstall" pos="55,149" possize="160,20" text="我要装新版" align="left" style="uninstall_private:style_checkbox_text"/>
+        <checkbox textoffset="5" checkskin="btn_checkbox2" name="btn_reason_hinder_gaming" pos="265,149" possize="160,20" text="影响正常游戏" align="left" style="uninstall_private:style_checkbox_text"/>
+        <checkbox textoffset="5" checkskin="btn_checkbox2" name="btn_reason_useless" pos="480,149" possize="160,20" text="功能不实用" align="left" style="uninstall_private:style_checkbox_text"/>
+        <checkbox textoffset="5" checkskin="btn_checkbox2" name="btn_reason_awkward" pos="55,174" possize="160,20" text="操作不方便" align="left" style="uninstall_private:style_checkbox_text"/>
+		<checkbox textoffset="5" checkskin="btn_checkbox2" name="btn_reason_ugly" pos="265,174" possize="160,20" text="界面不好看" align="left" style="uninstall_private:style_checkbox_text"/>
+		<checkbox textoffset="5" checkskin="btn_checkbox2" name="btn_reason_performance" pos="480,174" possize="160,20" text="卡顿，崩溃等" align="left" style="uninstall_private:style_checkbox_text"/>
+
+        <Edit name="edit_reason" style="global-style-edit" pos="40,205,@560,@82" skin="edit_border" ballowbeep="1" surfacetext="  其他原因" surfacetextclr="rgba(9e,9e,9e,ff)" brichtext="1" bwantreturn="1" bmultilines="1" bwordwrap="1" text="" surfacefont="face:微软雅黑,size:12" style="style_checkbox_text" surfaceskin="edit_border"></Edit>
+		
+		<Edit name="edit_contact_info" style="global-style-edit" pos="40,295,@560,@42" skin="edit_border" ballowbeep="1" surfacetext="  方便的话，请留下您的联系方式，QQ、微信、手机号或邮箱" text="" surfacefont="face:微软雅黑,size:12" surfacetextclr="rgba(9e,9e,9e,ff)" style="style_checkbox_text" surfaceskin="edit_border"></Edit>
+		
+		<button name="btn_uninstall_cancel" pos="330,350" possize="-1,-1" skin="btn_uninstall_cancel" ></button>
+  		<button name="btn_uninstall_ok" pos="160,350" possize="-1,-1" skin="btn_uninstall_ok" ></button>
+
+  		<button name="btn_commit" skin="btn_commit" pos="191,371" possize="-1,-1" bvisible="0"></button>
+
+        <checkbox name="btn_download_client" pos="496,385,@85,@18" text="重新下载" clrtext="rgba(30,9b,df,ff)"
+          checkskin="btn_checkbox_download_client" brightbox="1" align="right" textoffset="5" font="size:12" bvisible="0" />
+  		</window>
+      
+		<window name="wnd_uninstall_ok" pos="0,0,-0,-0" bvisible="0" skin="message_ok">
+			<window pos="170,107,@300,@200" bdrag="1">
+				<static name="label_popup_content" pos="0,28,-0,-65" clrtext="rgba(70,70,70,ff)"
+					align="center" valign="center" bmultiLines="1" text="卸载成功！"></static>
+				<button name="btn_ok2" skin="btn_ok" pos="75,140" possize="-1,-1"></button>
+			</window>
+		</window>
+  	</window>
+	<window name="logo" pos="15,12" possize="-1,-1" bdrag="1" skin="logo" />
+    <static name="label_install_title" pos="40,15,%60,@20" font="size:15,weight:700,bold:1"
+        clrtext="rgba(ff,ff,ff,ff)" align="left" valign="top" text="GBox卸载"></static>
+    <button name="btn_close" skin="btn_close2" pos="-28,0,@28,@28"></button>
+	<button name="btn_min" skin="btn_min2" pos="-56,0,@28,@28" ></button>
+
+  </root>
+  <style name="uninstall_private">
+    <!--局部style对象,外部可在窗口销毁时释放-->
+	<style id="style_checkbox_text" font="face:微软雅黑,size:12" clrtext="rgba(70,70,70,ff)"/>
+	<style id="style_text_gray" font="face:微软雅黑,size:12" clrtext="rgba(9e,9e,9e,ff)"/>
+  </style>
+</dm>

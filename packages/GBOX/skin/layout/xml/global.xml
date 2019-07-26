@@ -1,0 +1,51 @@
+﻿<global font="face:微软雅黑,size:14,weight:100">
+	<skin>
+		<!--  安装界面                     -->
+		<img9      id="bg_install_main"    src="PNG:bg_install_main"    states="1"              margin="10,266,10,2"/>
+		<img9      id="bg_install_license" src="PNG:bg_install_license" states="1"              margin="15,117,15,60"/>
+		<!--       <img9                   id="bg_preInstall"           src="PNG:bg_preInstall" states="1"              margin="10,266,10,2"/> -->
+		<img9      id="bg_installing"      src="PNG:bg_installing"      states="1"              margin="10,266,10,2"/>
+		<img9      id="bg_afterInstall"    src="PNG:bg_afterInstall"    states="1"              margin="10,266,10,2"/>
+		<imglist   id="btn_ok"             src="PNG:btn_ok"             states="3"              />
+		<imglist   id="btn_explorer"       src="PNG:btn_explorer"       states="1"              />
+		<imglist   id="btn_start_client"   src="PNG:btn_start_client"   states="3"              />
+		<imglist   id="btn_close"          src="PNG:btn_close"          states="4"              />
+		<imglist   id="btn_min"            src="PNG:btn_min"            states="4"              />
+		<imglist   id="btn_checkbox"       src="PNG:btn_checkbox"       states="8"              />
+		<imglist   id="btn_install"        src="PNG:btn_install"        states="3"              />
+		<img9      id="progress_channel"   src="PNG:progress_channel"   states="1"              margin="10,2,10,2"/>
+		<img9      id="progress_over"      src="PNG:progress_over"      states="1"              margin="10,2,10,2"/>
+<!-- 		<imglist   id="btn_turned_right"   src="PNG:btn_turned_right"   states="4"              />
+		<imglist   id="btn_turned_down"    src="PNG:btn_turned_down"    states="4"              /> -->
+		<imglist   id="btn_checkbox_custom_install" src="PNG:btn_checkbox_custom_install" states="8" />
+		<img9      id="division_line"      src="PNG:division_line"      states="1"              margin="5,1,1,5"/>
+		<scrollbar id="license_scrollbar"  src="PNG:license_scrollbar"  states="1"              margin="2,2,2,2"/>
+
+		<!--     卸载界面                  -->
+		<img9    id="bg_uninstall_main"    src="PNG:bg_uninstall_main"    states="1" margin="10,10,10,2"/>
+		<img9    id="bg_uninstalling"      src="PNG:bg_uninstalling"      states="1" margin="10,10,10,2"/>
+		<img9    id="bg_afterUninstall"    src="PNG:bg_afterUninstall"    states="1" margin="10,10,10,2"/>
+		<imglist id="btn_commit"           src="PNG:btn_commit"           states="3" />
+		<imglist id="btn_uninstall_ok"     src="PNG:btn_uninstall_ok"     states="3" />
+		<imglist id="btn_uninstall_cancel" src="PNG:btn_uninstall_cancel" states="3" />
+		<imglist id="btn_cancel"           src="PNG:btn_cancel"           states="3" />
+		<imglist id="btn_retry"            src="PNG:btn_retry"            states="3" />
+		<imglist id="btn_checkbox_download_client"            src="PNG:btn_checkbox_download_client"            states="8" />
+		<imglist   id="btn_checkbox2"      src="PNG:btn_checkbox2"        states="8"              />
+		<imglist   id="message_ok"         src="PNG:message_ok"           states="1"              />
+		<imglist   id="btn_close2"         src="PNG:btn_close2"           states="4"              />
+		<imglist   id="btn_min2"           src="PNG:btn_min2"           states="4"              />
+
+		<!--     通用控件                  -->
+		<img9    id="edit_border"          src="PNG:edit_border"          states="4" margin="1,1,1,1"/>
+		<img9    id="bg_messagebox"        src="PNG:bg_messagebox"        states="1" margin="8,358,8,2"/>
+		<imglist id="logo"                 src="PNG:logo"                 states="1" />
+		
+	</skin>
+	<style>
+		<!-- <style id="custom"  font="" alpha="0xff" skin="DUI_Frame" ncskin="DUI_Frame" clrtext="rgba(ff,00,ff,80)" clrtexthover="rgba(ff,00,00,80)" clrtextpush="rgba(dd,dd,00,ff)" margin-x="0"/> -->
+		<!-- <style id="static"  clrnc="pbgra(e2,b2,3e,ff)" ncmargin="1,1,1,1"/> -->
+		<style id="global-style-static" align="left" clrtext="rgba(0,0,0,ff)" bmsgnohandle="1" />
+		<style id="global-style-edit" font="size:18,weight:400" multiLines="0" maxbuf="1000" rcinsertmargin="5,1,1,5"/>
+	</style>
+</global>

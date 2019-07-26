@@ -1,0 +1,14 @@
+<dm  initsize="640,400" minsize="640,400" maxsize="-1,-1" bresize="0" btranslucent="1" alpha="255">
+	<root name="popup_frame" bvisible="1">
+		<window name="popup_frame" skin="bg_messagebox" pos="0,0,-0,-0"> <!-- 弹出窗口 -->
+			<window name="content" pos="138,80,@360,@210">
+				<static name="label_popup_title" pos="0,0,-0,28" valign="center" align="center" clrtext="rgba(9e,9e,9e,ff)" text="提示"></static>
+				<button name="btn_close" skin="btn_close" pos="-28,0,@28,@28"></button>
+				<static name="label_popup_content" pos="0,28,-0,-65" clrtext="rgba(70,70,70,ff)"
+					align="center" valign="center" bmultiLines="1" text="确认退出安装吗？"></static>
+				<button name="btn_ok" skin="btn_ok" pos="25,150" possize="-1,-1"></button>
+				<button name="btn_cancel" skin="btn_cancel" pos="185,150" possize="-1,-1"></button>
+			</window>
+  		</window>
+	</root>
+</dm>

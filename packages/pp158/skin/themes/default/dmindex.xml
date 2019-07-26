@@ -1,0 +1,13 @@
+<resource>  
+	<PNG>
+		<!--  安装界面                    -->
+		<file name="bg_installing"     path="themes\default\images\bg_installing.png"></file>
+		<file name="progress_channel"  path="themes\default\images\progressBar_channel.png"/>
+		<file name="progress_over"     path="themes\default\images\progressBar_over.png"/>
+		<file name="shuffling_figure1" path="themes\default\images\shuffling_figure1.png"/>
+		<file name="shuffling_figure2" path="themes\default\images\shuffling_figure2.png"/>
+		<file name="shuffling_figure3" path="themes\default\images\shuffling_figure3.png"/>
+		<file name="label_config"      path="themes\default\images\label_config.png"/>
+		<file name="point"             path="themes\default\images\point.png"/>
+	</PNG>
+</resource>
