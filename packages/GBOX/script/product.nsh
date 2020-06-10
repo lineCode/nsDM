@@ -1,7 +1,7 @@
 !ifndef __PRODUCT_NSH__
 !define __PRODUCT_NSH__
 
-;²úÆ·ÅäÖÃ
+;äº§å“é…ç½®
 ;==================================================
 !define    PRODUCT_NAME                  "GBOX"
 !define    PRODUCT_VERSION               "2.0.0.28"
@@ -11,57 +11,57 @@
 !define    PRODUCT_SUB_KEY               "SOFTWARE\GBOX"
 !define    PRODUCT_UNINST_KEY            "Software\Microsoft\Windows\CurrentVersion\Uninstall\${PRODUCT_NAME}"
 !define    PRODUCT_UNINST_ROOT_KEY       "HKLM"
-!define    PRODUCT_MAIN_EXE              "glauncher.exe"                                                      ;°²×°Íê³ÉºóÆô¶¯µÄexe
-!define    PRODUCT_UNINSTALL_NAME        "Uninstall.exe"                                                       ;Ğ¶ÔØ³ÌĞòÃû
+!define    PRODUCT_MAIN_EXE              "glauncher.exe"                                                      ;å®‰è£…å®Œæˆåå¯åŠ¨çš„exe
+!define    PRODUCT_UNINSTALL_NAME        "Uninstall.exe"                                                       ;å¸è½½ç¨‹åºå
 !define    PRODUCT_LEGAL                 "Copyright(C) 2007-2018 YY Inc. All Rights Reserved"
-!define    PRODUCT_DESCRIPTION           "GBoxä¯ÀÀÆ÷"
-!define    SETUP_MUTEX_NAME              "{E272344F-E832-4D90-9623-31ACA4B02EE4}"                              ;·ÀÖ¹¶à½ø³ÌÍ¬Ê±ÔËĞĞ
-!define    MUI_ICON                      "..\skin\install.ico"                                                 ;°²×°icon
-!define    MUI_UNICON                    "..\skin\uninstall.ico"                                               ;Ğ¶ÔØicon
-!define    PRODUCT_CHANNEL_NAME          "official"                                                         ;·Ö¶ËÇşµÀºÅ
-!define    PRODUCT_CHANNEL_TAG           "23326"                                                           ;·Ö¶Ë±êÊ¶
-!define    PRODUCT_CLIENT_EXE            "glauncher.exe;gbrowser.exe;gbmonitor32.exe;gbmonitor64.exe"                                      ;¿Í»§¶ËÖ÷½ø³ÌÃû£¬ÓÃ»§°²×°/Ğ¶ÔØÖ®Ç°¼ì²â½ø³ÌÊÇ·ñÔÚÔËĞĞ
-!define    PRODUCT_RSO_NAME              "${PRODUCT_CHANNEL_TAG}"                                                    ;pas×Ö¶Îrso
-!define    PRODUCT_LNK_USER              "current"                                                                 ;¿ì½İ·½Ê½°²×°µÄÓÃ»§[all, current]
+!define    PRODUCT_DESCRIPTION           "GBoxæµè§ˆå™¨"
+!define    SETUP_MUTEX_NAME              "{E272344F-E832-4D90-9623-31ACA4B02EE4}"                              ;é˜²æ­¢å¤šè¿›ç¨‹åŒæ—¶è¿è¡Œ
+!define    MUI_ICON                      "..\skin\install.ico"                                                 ;å®‰è£…icon
+!define    MUI_UNICON                    "..\skin\uninstall.ico"                                               ;å¸è½½icon
+!define    PRODUCT_CHANNEL_NAME          "official"                                                         ;åˆ†ç«¯æ¸ é“å·
+!define    PRODUCT_CHANNEL_TAG           "23326"                                                           ;åˆ†ç«¯æ ‡è¯†
+!define    PRODUCT_CLIENT_EXE            "glauncher.exe;gbrowser.exe;gbmonitor32.exe;gbmonitor64.exe"                                      ;å®¢æˆ·ç«¯ä¸»è¿›ç¨‹åï¼Œç”¨æˆ·å®‰è£…/å¸è½½ä¹‹å‰æ£€æµ‹è¿›ç¨‹æ˜¯å¦åœ¨è¿è¡Œ
+!define    PRODUCT_RSO_NAME              "${PRODUCT_CHANNEL_TAG}"                                                    ;paså­—æ®µrso
+!define    PRODUCT_LNK_USER              "current"                                                                 ;å¿«æ·æ–¹å¼å®‰è£…çš„ç”¨æˆ·[all, current]
 !define    PRODUCT_DESKTOP_ARG           ''
 !define    PRODUCT_STARTMENU_ARG         ''
 !define    PRODUCT_TASKBAR_ARG           ''
-!define    PRODUCT_INSTALL_SIZE          146800640                                                          ;²úÆ·°²×°ĞèÒªÕ¼ÓÃµÄ´ÅÅÌ×Ö½ÚÊı(140M)
+!define    PRODUCT_INSTALL_SIZE          146800640                                                          ;äº§å“å®‰è£…éœ€è¦å ç”¨çš„ç£ç›˜å­—èŠ‚æ•°(140M)
 
-Name       "${PRODUCT_NAME}"            ;°²×°³ÌĞòÃû×Ö
-OutFile    "gbox.exe"             ;°²×°°üÃû×Ö
-;InstallDir "$PROGRAMFILES\duowan\${PRODUCT_NAME}" ;Ä¬ÈÏ°²×°Î»ÖÃ
-InstallDir "$APPDATA\gbox" ;Ä¬ÈÏ°²×°Î»ÖÃ
+Name       "${PRODUCT_NAME}"            ;å®‰è£…ç¨‹åºåå­—
+OutFile    "gbox.exe"             ;å®‰è£…åŒ…åå­—
+;InstallDir "$PROGRAMFILES\duowan\${PRODUCT_NAME}" ;é»˜è®¤å®‰è£…ä½ç½®
+InstallDir "$APPDATA\gbox" ;é»˜è®¤å®‰è£…ä½ç½®
 
 ;==================================================
-;PASÉÏ±¨
+;PASä¸ŠæŠ¥
 !define PAS_ROOT_URL               "http://stat.game.yy.com/data.do"
 !define PAS_SESSION_DATA           "act=/session_data"
 !define PAS_EVENT_DATA             "act=/event"
 !define PAS_PRODUCT_NAME           "gbox_v2"
-;°²×°ÉÏ±¨
-!define PAS_BEGIN_INSTALL          '"install/start"                  "°²×°/¿ªÊ¼ÔËĞĞ"'          ;Æô¶¯°²×°³ÌĞò
-!define PAS_INSTALL_DEFAULT        '"install/mode/default"           "°²×°/Ä£Ê½/Ä¬ÈÏ"'         ;Ä¬ÈÏ°²×°
-!define PAS_INSTALL_CUSTOM         '"install/mode/upgrade"           "°²×°/Ä£Ê½/Éı¼¶"'         ;×Ô¶¨Òå°²×°
-!define PAS_INSTALL_WITH_TASKBAR   '"install/shortcut/taskbar"       "°²×°/¿ì½İ·½Ê½/ÈÎÎñÀ¸"'   ;´´½¨ÈÎÎñÀ¸Í¼±ê
-!define PAS_INSTALL_WITH_STARTMENU '"install/shortcut/startmenu"     "°²×°/¿ì½İ·½Ê½/¿ªÊ¼²Ëµ¥"' ;´´½¨¿ªÊ¼²Ëµ¥Í¼±ê
-!define PAS_INSTALL_SUCCESS        '"install/success"                "°²×°/³É¹¦"'              ;°²×°³É¹¦
-!define PAS_INSTALL_CHANNEL        '"install/channelfrom/${PRODUCT_CHANNEL_NAME}"                "°²×°/ÇşµÀ/ÇşµÀºÅ"'              ;°²×°ÇşµÀ
-!define PAS_RUN_CLIENT             '"install/run_client"             "°²×°/Æô¶¯´óÌü"'          ;Æô¶¯¿Í»§¶Ë
-!define PAS_INSTALL_FAILED         '"install/fail"                   "°²×°/Ê§°Ü"'              ;°²×°Ê§°Ü
-!define PAS_INSTALL_FAILED_DESKSPACE         '"install/fail/1"                   "°²×°/Ê§°Ü/´ÅÅÌ¿Õ¼ä²»×ã"'              ;°²×°Ê§°Ü
-!define PAS_INSTALL_FAILED_UNKNOW         '"install/fail/-1"                   "°²×°/Ê§°Ü/Î´Öª´íÎó"'              ;°²×°Ê§°Ü
-!define PAS_INSTALL_FAILED_TIMEOUT         '"install/fail/2"                   "°²×°/Ê§°Ü/µÈ´ı³¬Ê±"'              ;°²×°Ê§°Ü
-!define PAS_INSTALL_FAILED_UNPACK         '"install/fail/3"                   "°²×°/Ê§°Ü/½âÑ¹Ê§°Ü"'              ;½âÑ¹Ê§°Ü
-!define PAS_INSTALL_CANCELED       '"install/cancel"                 "°²×°/È¡Ïû"'              ;È¡Ïû°²×°
-!define PAS_END_INSTALL            '"install/end"                    "°²×°/½áÊøÔËĞĞ"'          ;ÍË³ö°²×°³ÌĞò
-;Ğ¶ÔØÉÏ±¨
-!define PAS_BEGIN_UNINSTALL        '"uninstall/start"                "Ğ¶ÔØ/¿ªÊ¼ÔËĞĞ"'          ;Æô¶¯Ğ¶ÔØ³ÌĞò
-!define PAS_UNINSTALL_SUCCESS      '"uninstall/success"              "Ğ¶ÔØ/Ğ¶ÔØ³É¹¦"'          ;Ğ¶ÔØ³É¹¦
-!define PAS_UNINSTALL_FAILED       '"uninstall/fail"                 "Ğ¶ÔØ/Ğ¶ÔØÊ§°Ü"'          ;Ğ¶ÔØÊ§°Ü
-!define PAS_UNINSTALL_CANCELED     '"uninstall/cancel"               "Ğ¶ÔØ/Ğ¶ÔØÈ¡Ïû"'          ;È¡ÏûĞ¶ÔØ
-!define PAS_END_UNINSTALL          '"uninstall/end"                  "Ğ¶ÔØ/½áÊøÔËĞĞ"'          ;ÍË³öĞ¶ÔØ³ÌĞò
-!define PAS_DOWNLOAD_CLIENT        '"click/4366game/downloadpage"    "µã»÷/´óÌü°²×°/ÏÂÔØÒ³"'   ;ÖØĞÂÏÂÔØ¿Í»§¶Ë
+;å®‰è£…ä¸ŠæŠ¥
+!define PAS_BEGIN_INSTALL          '"install/start"                  "å®‰è£…/å¼€å§‹è¿è¡Œ"'          ;å¯åŠ¨å®‰è£…ç¨‹åº
+!define PAS_INSTALL_DEFAULT        '"install/mode/default"           "å®‰è£…/æ¨¡å¼/é»˜è®¤"'         ;é»˜è®¤å®‰è£…
+!define PAS_INSTALL_CUSTOM         '"install/mode/upgrade"           "å®‰è£…/æ¨¡å¼/å‡çº§"'         ;è‡ªå®šä¹‰å®‰è£…
+!define PAS_INSTALL_WITH_TASKBAR   '"install/shortcut/taskbar"       "å®‰è£…/å¿«æ·æ–¹å¼/ä»»åŠ¡æ "'   ;åˆ›å»ºä»»åŠ¡æ å›¾æ ‡
+!define PAS_INSTALL_WITH_STARTMENU '"install/shortcut/startmenu"     "å®‰è£…/å¿«æ·æ–¹å¼/å¼€å§‹èœå•"' ;åˆ›å»ºå¼€å§‹èœå•å›¾æ ‡
+!define PAS_INSTALL_SUCCESS        '"install/success"                "å®‰è£…/æˆåŠŸ"'              ;å®‰è£…æˆåŠŸ
+!define PAS_INSTALL_CHANNEL        '"install/channelfrom/${PRODUCT_CHANNEL_NAME}"                "å®‰è£…/æ¸ é“/æ¸ é“å·"'              ;å®‰è£…æ¸ é“
+!define PAS_RUN_CLIENT             '"install/run_client"             "å®‰è£…/å¯åŠ¨å¤§å…"'          ;å¯åŠ¨å®¢æˆ·ç«¯
+!define PAS_INSTALL_FAILED         '"install/fail"                   "å®‰è£…/å¤±è´¥"'              ;å®‰è£…å¤±è´¥
+!define PAS_INSTALL_FAILED_DESKSPACE         '"install/fail/1"                   "å®‰è£…/å¤±è´¥/ç£ç›˜ç©ºé—´ä¸è¶³"'              ;å®‰è£…å¤±è´¥
+!define PAS_INSTALL_FAILED_UNKNOW         '"install/fail/-1"                   "å®‰è£…/å¤±è´¥/æœªçŸ¥é”™è¯¯"'              ;å®‰è£…å¤±è´¥
+!define PAS_INSTALL_FAILED_TIMEOUT         '"install/fail/2"                   "å®‰è£…/å¤±è´¥/ç­‰å¾…è¶…æ—¶"'              ;å®‰è£…å¤±è´¥
+!define PAS_INSTALL_FAILED_UNPACK         '"install/fail/3"                   "å®‰è£…/å¤±è´¥/è§£å‹å¤±è´¥"'              ;è§£å‹å¤±è´¥
+!define PAS_INSTALL_CANCELED       '"install/cancel"                 "å®‰è£…/å–æ¶ˆ"'              ;å–æ¶ˆå®‰è£…
+!define PAS_END_INSTALL            '"install/end"                    "å®‰è£…/ç»“æŸè¿è¡Œ"'          ;é€€å‡ºå®‰è£…ç¨‹åº
+;å¸è½½ä¸ŠæŠ¥
+!define PAS_BEGIN_UNINSTALL        '"uninstall/start"                "å¸è½½/å¼€å§‹è¿è¡Œ"'          ;å¯åŠ¨å¸è½½ç¨‹åº
+!define PAS_UNINSTALL_SUCCESS      '"uninstall/success"              "å¸è½½/å¸è½½æˆåŠŸ"'          ;å¸è½½æˆåŠŸ
+!define PAS_UNINSTALL_FAILED       '"uninstall/fail"                 "å¸è½½/å¸è½½å¤±è´¥"'          ;å¸è½½å¤±è´¥
+!define PAS_UNINSTALL_CANCELED     '"uninstall/cancel"               "å¸è½½/å¸è½½å–æ¶ˆ"'          ;å–æ¶ˆå¸è½½
+!define PAS_END_UNINSTALL          '"uninstall/end"                  "å¸è½½/ç»“æŸè¿è¡Œ"'          ;é€€å‡ºå¸è½½ç¨‹åº
+!define PAS_DOWNLOAD_CLIENT        '"click/4366game/downloadpage"    "ç‚¹å‡»/å¤§å…å®‰è£…/ä¸‹è½½é¡µ"'   ;é‡æ–°ä¸‹è½½å®¢æˆ·ç«¯
 
 
 !endif

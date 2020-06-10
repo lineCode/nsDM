@@ -3,8 +3,8 @@
 
 #include "stdafx.h"
 #include "nsDefine.h"
-#include "pluginapi.h"
-#include "output_debug.h"
+#include "nsis/pluginapi.h"
+// #include "Logging.h"
 #include "easy_libcurl.h"
 #include "Utils.h"
 
@@ -124,7 +124,7 @@ NSISFUNC(NSGet)
 
 	char* url = new char[512];
 	memset(url, 0, 512);
-	popstringA(url, 512);
+	PopStringNA(url, 512);
 
 	//TODO 每次请求提供事件id，用以同步
 	::ResetEvent(g_hSyncEvent);
@@ -148,7 +148,7 @@ NSISFUNC(NSGetAsync)
 
 	char* url = new char[512];
 	memset(url, 0, 512);
-	popstringA(url, 512);
+	PopStringNA(url, 512);
 	pushint(::PostThreadMessage(g_ApcId, UM_MSG_URL, reinterpret_cast<WPARAM>(url), reinterpret_cast<LPARAM>(HttpGetProc)));
 }
 
@@ -178,8 +178,8 @@ NSISFUNC(NSPost)
 	char* data = new char[1024];
 	memset(url, 0, 512);
 	memset(data, 0, 1024);
-	popstringA(url, 512);
-	popstringA(data, 1024);
+	PopStringNA(url, 512);
+	PopStringNA(data, 512);
 	DWORD* pArray = new DWORD[2];
 	pArray[0] = reinterpret_cast<DWORD>(url);
 	pArray[1] = reinterpret_cast<DWORD>(data);
@@ -208,8 +208,8 @@ NSISFUNC(NSPostAsync)
 	char* data = new char[1024];
 	memset(url, 0, 512);
 	memset(data, 0, 1024);
-	popstringA(url, 512);
-	popstringA(data, 1024);
+	PopStringNA(url, 512);
+	PopStringNA(data, 1024);
 	DWORD* pArray = new DWORD[2];
 	pArray[0] = reinterpret_cast<DWORD>(url);
 	pArray[1] = reinterpret_cast<DWORD>(data);

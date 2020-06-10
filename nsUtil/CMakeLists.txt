@@ -21,8 +21,7 @@ file(GLOB COMMON_BASE_SOURCE     				${PROJDIR}/3rdParty/common/base/encrypt/mod
                                         ${PROJDIR}/3rdParty/common/base/system/minfo/mid.cpp
                                         ${PROJDIR}/3rdParty/common/base/system/system_util.cpp)
 
-file(GLOB NSIS_SOURCE     					    ${PROJDIR}/3rdParty/nsis/include/output_debug.cpp
-                                        ${PROJDIR}/3rdParty/nsis/include/pluginapi.c)
+file(GLOB NSIS_SOURCE     				${PROJDIR}/3rdParty/nsis/pluginapi.c)
 
 source_group("inc" 								      FILES 	${ROOT_HEADER})
 source_group("src"								      FILES 	${ROOT_SOURCE})
@@ -35,7 +34,7 @@ source_group("src\\nsis"							  FILES 	${NSIS_SOURCE})
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/inc
                     )                              
 INCLUDE_DIRECTORIES(${PROJDIR}/3rdParty/easy_libcurl/include
-                    ${PROJDIR}/3rdParty/nsis/include
+                    ${PROJDIR}/3rdParty/
                     ${PROJDIR}/3rdParty/common/include
                     ${PROJDIR}/3rdParty/common/
                     ${PROJDIR}/3rdParty/common/base/encrypt

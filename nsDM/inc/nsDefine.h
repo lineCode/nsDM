@@ -1,6 +1,6 @@
 #pragma once
 
-#define NSISFUNC(name) extern "C" void __declspec(dllexport) name(HWND hWndParent, int string_size, char* variables, stack_t** stacktop, extra_parameters* extra)
+#define NSISFUNC(name) extern "C" void __declspec(dllexport) name(HWND hWndParent, int string_size, LPTSTR variables, stack_t** stacktop, extra_parameters* extra)
 
 #define REGSITER_CALLBACK(INST) do \
 { \

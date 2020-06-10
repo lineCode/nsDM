@@ -14,8 +14,7 @@ file(GLOB ROOT_SOURCE 									src/*.cpp;src/*.c)
 file(GLOB ZIPRES_SOURCE 								src/zipres/*.cpp;src/zipres/*.c)
 
 file(GLOB COMMON_SOURCE     				    ${PROJDIR}/3rdParty/common/src/Utils.cpp)
-file(GLOB NSIS_SOURCE     					    ${PROJDIR}/3rdParty/nsis/include/output_debug.cpp
-                                        ${PROJDIR}/3rdParty/nsis/include/pluginapi.c)
+file(GLOB NSIS_SOURCE     				${PROJDIR}/3rdParty/nsis/pluginapi.c)
 
 source_group("inc" 								      FILES 	${ROOT_HEADER})
 source_group("inc\\zipres" 							FILES 	${ZIPRES_HEADER})
@@ -48,14 +47,14 @@ include_directories(${PROJDIR}/DmMain/inc
                     ${PROJDIR}/DmMain/inc/Widgets)
 
 INCLUDE_DIRECTORIES(${PROJDIR}/3rdParty/easy_libcurl/include
-                    ${PROJDIR}/3rdParty/nsis/include
+                    ${PROJDIR}/3rdParty
                     ${PROJDIR}/3rdParty/common/include)
 
 #-------------------------------------------------------------------------------------------------------------------
 add_definitions(-DUNICODE -D_UNICODE)  # unicode版本
 
 # MT模式
-SET(CMAKE_CXX_FLAGS_DEBUG "/D_DEBUG /MTd /Zi /Ob0 /Od /RTC1")# 直接抄gui的默认，然后 改成mtd
+SET(CMAKE_CXX_FLAGS_DEBUG "/D_DEBUG /MDd /Zi /Ob0 /Od /RTC1")# 直接抄gui的默认，然后 改成mtd
 SET(CMAKE_CXX_FLAGS_RELEASE "/MT /O2 /Ob2 /D NDEBUG")
 SET(CMAKE_CXX_FLAGS_MINSIZEREL "/MT /O1 /Ob1 /D NDEBUG")
 SET(CMAKE_CXX_FLAGS_RELWITHDEBINFO "/MT /Zi /O2 /Ob1 /D NDEBUG")
@@ -79,4 +78,5 @@ SET_TARGET_PROPERTIES(nsDM PROPERTIES OUTPUT_NAME "nsDM")
 
 #-------------------------------------------------------------------------------------------------------------------
 add_dependencies(nsDM  DmMain)
-add_dependencies(nsDM  zlib)
+# add_dependencies(nsDM  zlibstatic)
+target_link_libraries(nsDM zlibstatic)

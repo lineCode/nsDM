@@ -1,26 +1,28 @@
-# ====================== °²×°³ÌĞò³õÊ¼¶¨Òå³£Á¿ ==============================
+Unicode true
+
+# ====================== å®‰è£…ç¨‹åºåˆå§‹å®šä¹‰å¸¸é‡ ==============================
 ; !define _DEBUG 1
 SetCompressor lzma
-!packhdr "$%TEMP%\yygame_exehead.tmp" '"..\..\..\script\upx.exe" -9 "$%TEMP%\yygame_exehead.tmp"'
+# !packhdr "$%TEMP%\yygame_exehead.tmp" '"..\..\..\script\upx.exe" -9 "$%TEMP%\yygame_exehead.tmp"'
 
-# ====================== ²úÆ·×Ô¶¨ÒåĞÅÏ¢ ==============================
+# ====================== äº§å“è‡ªå®šä¹‰ä¿¡æ¯ ==============================
 !include "product.nsh"
 
-# ===================== È«¾ÖÉèÖÃ =============================
+# ===================== å…¨å±€è®¾ç½® =============================
 !ifndef _DEBUG
-	!verbose 3 ; ¼Ó¿ì±àÒëËÙ¶È
+	!verbose 3 ; åŠ å¿«ç¼–è¯‘é€Ÿåº¦
 !endif
 
-# ===================== MUIÉèÖÃ =============================
+# ===================== MUIè®¾ç½® =============================
 !include "MUI.nsh"
 
-# ===================== ÎÄ¼ş´ò°ü =============================
+# ===================== æ–‡ä»¶æ‰“åŒ… =============================
 ReserveFile "..\skin\skin.zip"
 ;ReserveFile "..\addon\vcredist_x86.exe"
 ;ReserveFile "..\addon\license.txt"
-!insertmacro MUI_RESERVEFILE_INSTALLOPTIONS ; °²×°Ô¤ÊÍ·ÅÎÄ¼ş
+!insertmacro MUI_RESERVEFILE_INSTALLOPTIONS ; å®‰è£…é¢„é‡Šæ”¾æ–‡ä»¶
 
-# ===================== ÒıÈëµÚÈı·½Í·ÎÄ¼şºÍ²å¼ş =============================
+# ===================== å¼•å…¥ç¬¬ä¸‰æ–¹å¤´æ–‡ä»¶å’Œæ’ä»¶ =============================
 !addincludedir "..\..\..\script"
 !include "utils.nsh"
 !include "nsdm.nsh"
@@ -34,21 +36,21 @@ ReserveFile "..\skin\skin.zip"
 	!addplugindir "..\..\..\publish"
 !endif
 
-# ==================== NSISÊôĞÔ ================================
+# ==================== NSISå±æ€§ ================================
 BrandingText /TRIMLEFT "${PRODUCT_PUBLISHER}"
-SetFont "Î¢ÈíÑÅºÚ" 8
+SetFont "å¾®è½¯é›…é»‘" 8
 CRCCheck on
-InstallDirRegKey ${PRODUCT_ROOT_KEY} "${PRODUCT_SUB_KEY}" "installDir" ; ´Ó×¢²á±í»ñÈ¡°²×°Â·¾¶
-RequestExecutionLevel admin ; È¨ÏŞÇëÇó none|user|highest|admin
-Icon "..\skin\install.ico" ; °²×°Í¼±ê
-UninstallIcon "..\skin\uninstall.ico" ; Ğ¶ÔØÍ¼±ê
-ShowInstDetails nevershow ; ÉèÖÃÊÇ·ñÏÔÊ¾°²×°ÏêÏ¸ĞÅÏ¢
-ShowUninstDetails nevershow ; ÉèÖÃÊÇ·ñÏÔÊ¾Ğ¶ÔØÏêÏ¸ĞÅÏ¢
+InstallDirRegKey ${PRODUCT_ROOT_KEY} "${PRODUCT_SUB_KEY}" "installDir" ; ä»æ³¨å†Œè¡¨è·å–å®‰è£…è·¯å¾„
+RequestExecutionLevel admin ; æƒé™è¯·æ±‚ none|user|highest|admin
+Icon "..\skin\install.ico" ; å®‰è£…å›¾æ ‡
+UninstallIcon "..\skin\uninstall.ico" ; å¸è½½å›¾æ ‡
+ShowInstDetails nevershow ; è®¾ç½®æ˜¯å¦æ˜¾ç¤ºå®‰è£…è¯¦ç»†ä¿¡æ¯
+ShowUninstDetails nevershow ; è®¾ç½®æ˜¯å¦æ˜¾ç¤ºå¸è½½è¯¦ç»†ä¿¡æ¯
 !insertmacro MUI_LANGUAGE "SimpChinese"
-;SilentUnInstall silent ; ¾²Ä¬°²×°
-;SilentInstall silent ; ¾²Ä¬Ğ¶ÔØ
+;SilentUnInstall silent ; é™é»˜å®‰è£…
+;SilentInstall silent ; é™é»˜å¸è½½
 
-# ===================== °²×°°ü°æ±¾ =============================
+# ===================== å®‰è£…åŒ…ç‰ˆæœ¬ =============================
 VIProductVersion                    "${PRODUCT_VERSION}"
 VIAddVersionKey "ProductVersion"    "${PRODUCT_VERSION}"
 VIAddVersionKey "ProductName"       "${PRODUCT_NAME}"
@@ -60,12 +62,12 @@ VIAddVersionKey "LegalCopyright"    "${PRODUCT_LEGAL}"
 
 # ====================  Test =====================================
 
-# ==================== ×Ô¶¨ÒåÒ³Ãæ ================================
+# ==================== è‡ªå®šä¹‰é¡µé¢ ================================
 Page custom DMPage
 
 # UninstPage custom un.DMPage
 
-# ==================== È«¾Ö±äÁ¿ ================================
+# ==================== å…¨å±€å˜é‡ ================================
 !define DM_SKIN_PATH "$PLUGINSDIR\skin.zip"
 !define GAME_LICENSE_PATH "$PLUGINSDIR\license.txt"
 !define VC_REDIST_PATH "$PLUGINSDIR\vcredist_x86.exe"
@@ -77,76 +79,76 @@ Page custom DMPage
 !define IDCANCEL 2
 ;!define IDRETRY 4
 !define IDCLOSE 8
-Var InstallState ; °²×°×´Ì¬(doing¡¢done)
-Var CountdownTimer ; °²×°Íê³É½çÃæµ¹¼ÆÊ±¶¨Ê±Æ÷
-Var Countdown ; µ¹¼ÆÊ±¼ÆÊı
-;Var UninstallProgress ; Ğ¶ÔØ½ø¶È
-Var InstallRoot ; °²×°¸ùÄ¿Â¼
-Var PasSessionId ; pasÉÏ±¨session id
-Var MBSize ; µ¯³ö¿ò´óĞ¡
-Var OverwriteInstall ; ÊÇ·ñ¸²¸Ç°²×°: 0 Î´¼ì²âµ½ÒÑ°²×°°æ±¾; 1 ¸²¸Ç°²×°; 2 È¡Ïû°²×°
+Var InstallState ; å®‰è£…çŠ¶æ€(doingã€done)
+Var CountdownTimer ; å®‰è£…å®Œæˆç•Œé¢å€’è®¡æ—¶å®šæ—¶å™¨
+Var Countdown ; å€’è®¡æ—¶è®¡æ•°
+;Var UninstallProgress ; å¸è½½è¿›åº¦
+Var InstallRoot ; å®‰è£…æ ¹ç›®å½•
+Var PasSessionId ; pasä¸ŠæŠ¥session id
+Var MBSize ; å¼¹å‡ºæ¡†å¤§å°
+Var OverwriteInstall ; æ˜¯å¦è¦†ç›–å®‰è£…: 0 æœªæ£€æµ‹åˆ°å·²å®‰è£…ç‰ˆæœ¬; 1 è¦†ç›–å®‰è£…; 2 å–æ¶ˆå®‰è£…
 Var NSDM_OUT
 
 Section "-Dummy"
-	; ¿Õ°×Çø¶Î£¬·ÀÖ¹±àÒëÆ÷±¨´í
+	; ç©ºç™½åŒºæ®µï¼Œé˜²æ­¢ç¼–è¯‘å™¨æŠ¥é”™
 	Nop
 SectionEnd
-# ==================== °²×°Çø¶Î ================================
+# ==================== å®‰è£…åŒºæ®µ ================================
 Function InstallFunc
-	;¸´ÖÆÒª·¢²¼µÄ°²×°ÎÄ¼ş
+	;å¤åˆ¶è¦å‘å¸ƒçš„å®‰è£…æ–‡ä»¶
 	SetOutPath "$INSTDIR"
 	SetOverWrite on
-	; ÏÈÊÍ·ÅLauncher³ÌĞò
-	File "..\addon\glauncher.exe"
+	; å…ˆé‡Šæ”¾Launcherç¨‹åº
+	# File "..\addon\glauncher.exe"
 	; File /r /x .svn "..\product\*.*"
 	SetCompress off
-	File "..\product\product.7z"
+	# File "..\product\product.7z"
 	SetCompress auto
 	SetRebootFlag false
 
 	GetFunctionAddress $R9 ExtractCallback
-	Nsis7z::ExtractWithCallback "$OUTDIR\product.7z" $R9
+	# Nsis7z::ExtractWithCallback "$OUTDIR\product.7z" $R9
 	
-	# ÎÄ¼ş½âÑ¹ÓĞ¿ÉÄÜÊ§°Ü£¬ÏÈÅĞ¶ÏÄ¿±êÎÄ¼şÊÇ·ñ´æÔÚ
+	# æ–‡ä»¶è§£å‹æœ‰å¯èƒ½å¤±è´¥ï¼Œå…ˆåˆ¤æ–­ç›®æ ‡æ–‡ä»¶æ˜¯å¦å­˜åœ¨
 	IfFileExists "$INSTDIR\${PRODUCT_MAIN_EXE}" done 0
-	!insertmacro "NSDM_DEBUG_INFO" "µÚÒ»´ÎÊÍ·ÅÎÄ¼şÊ§°Ü£¬³¢ÊÔ½øĞĞµÚ¶ş´ÎÊÍ·Å"
-	# ÕâÀï²»Ìø×ª»ØÈ¥£¬ÒòÎªÑ­»·Ìø×ªÒª¼Ó´ÎÊıÅĞ¶Ï£¬Ì«Âé·³
+	!insertmacro "NSDM_DEBUG_INFO" "ç¬¬ä¸€æ¬¡é‡Šæ”¾æ–‡ä»¶å¤±è´¥ï¼Œå°è¯•è¿›è¡Œç¬¬äºŒæ¬¡é‡Šæ”¾"
+	# è¿™é‡Œä¸è·³è½¬å›å»ï¼Œå› ä¸ºå¾ªç¯è·³è½¬è¦åŠ æ¬¡æ•°åˆ¤æ–­ï¼Œå¤ªéº»çƒ¦
 	GetFunctionAddress $R9 ExtractCallback
-	Nsis7z::ExtractWithCallback "$OUTDIR\product.7z" $R9
+	# Nsis7z::ExtractWithCallback "$OUTDIR\product.7z" $R9
 
 	IfFileExists "$INSTDIR\${PRODUCT_MAIN_EXE}" done 0
-	!insertmacro "NSDM_DEBUG_INFO" "µÚ¶ş´ÎÊÍ·ÅÎÄ¼şÊ§°Ü"
-	Delete "$OUTDIR\product.7z"
+	!insertmacro "NSDM_DEBUG_INFO" "ç¬¬äºŒæ¬¡é‡Šæ”¾æ–‡ä»¶å¤±è´¥"
+	# Delete "$OUTDIR\product.7z"
 	Return
 	done:
-	!insertmacro "NSDM_DEBUG_INFO" "ÊÍ·ÅÎÄ¼ş³É¹¦"
-	Delete "$OUTDIR\product.7z"
-	# iniÎÄ¼ş¸ù¾İĞèÇó¶¯Ì¬Éú³É
+	!insertmacro "NSDM_DEBUG_INFO" "é‡Šæ”¾æ–‡ä»¶æˆåŠŸ"
+	# Delete "$OUTDIR\product.7z"
+	# iniæ–‡ä»¶æ ¹æ®éœ€æ±‚åŠ¨æ€ç”Ÿæˆ
 	# File "..\addon\Version.ini"
 FunctionEnd
 
 Function InstallFuncSlient
-	;¸´ÖÆÒª·¢²¼µÄ°²×°ÎÄ¼ş
+	;å¤åˆ¶è¦å‘å¸ƒçš„å®‰è£…æ–‡ä»¶
 	SetOutPath "$INSTDIR"
 	SetOverWrite on
 	; File /r /x .svn "..\product\*.*"
 	SetCompress off
-	File "..\product\product.7z"
+	# File "..\product\product.7z"
 	SetCompress auto
 	SetRebootFlag false
 
-	Nsis7z::Extract "$OUTDIR\product.7z"
-	Delete "$OUTDIR\product.7z"
+	# Nsis7z::Extract "$OUTDIR\product.7z"
+	 #Delete "$OUTDIR\product.7z"
 FunctionEnd
 
 
 Function ExtractCallback
-	Pop $R8 ; ÒÑ°²×°´óĞ¡
-  	Pop $R9 ; ×Ü´óĞ¡
+	Pop $R8 ; å·²å®‰è£…å¤§å°
+  	Pop $R9 ; æ€»å¤§å°
   	System::Int64Op $R8 * 100
   	Pop $R7
   	System::Int64Op $R7 / $R9
-  	Pop $R7 ; °²×°°Ù·Ö±È
+  	Pop $R7 ; å®‰è£…ç™¾åˆ†æ¯”
   	${If} $R8 == $R9
         ${nsdm.SetControlAttr} "progress_installing" 100 "value"
 		${nsdm.SetControlAttr} "label_install_percent" "100%" "text"
@@ -156,7 +158,7 @@ Function ExtractCallback
 	${EndIf}
 FunctionEnd
 
-; Éú³É¿ì½İ·½Ê½
+; ç”Ÿæˆå¿«æ·æ–¹å¼
 Function BuildShortCut
 	SetShellVarContext ${PRODUCT_LNK_USER}
   	CreateShortCut "$DESKTOP\${PRODUCT_NAME}.lnk" "$INSTDIR\${PRODUCT_MAIN_EXE}" '${PRODUCT_DESKTOP_ARG}'
@@ -176,34 +178,34 @@ Function BuildShortCut
   	SetShellVarContext current
 FunctionEnd
 
-; ´´½¨¿ªÊ¼²Ëµ¥¿ì½İ·½Ê½
+; åˆ›å»ºå¼€å§‹èœå•å¿«æ·æ–¹å¼
 Function CreateStartMenu
 	CreateDirectory "$SMPROGRAMS\${PRODUCT_NAME}"
 	CreateShortCut "$SMPROGRAMS\${PRODUCT_NAME}\${PRODUCT_NAME}.lnk" "$INSTDIR\${PRODUCT_MAIN_EXE}" '${PRODUCT_STARTMENU_ARG}'
-	CreateShortCut "$SMPROGRAMS\${PRODUCT_NAME}\Ğ¶ÔØ${PRODUCT_NAME}.lnk" "$INSTDIR\${PRODUCT_UNINSTALL_NAME}"
+	CreateShortCut "$SMPROGRAMS\${PRODUCT_NAME}\å¸è½½${PRODUCT_NAME}.lnk" "$INSTDIR\${PRODUCT_UNINSTALL_NAME}"
 
 	!insertmacro PostPasEvent ${PAS_INSTALL_WITH_STARTMENU}
 FunctionEnd
 
-; ´´½¨ÈÎÎñÀ¸Í¼±ê
+; åˆ›å»ºä»»åŠ¡æ å›¾æ ‡
 Function CreateTaskbar
     ${If} ${IsWin7}
     ${OrIf} ${IsWinVista}
-    	; É¾³ıÒÑÓĞÍ¼±ê
+    	; åˆ é™¤å·²æœ‰å›¾æ ‡
     	StrCpy $R1 "$QUICKLAUNCH\User Pinned\TaskBar\${PRODUCT_NAME}.lnk"
   		ExecShell "taskbarunpin" "$R1"
   		Delete "$R1"
-  		; ´´½¨ĞÂÍ¼±ê
+  		; åˆ›å»ºæ–°å›¾æ ‡
     	StrCpy $R1 "$INSTDIR\${PRODUCT_NAME}.lnk"
   		CreateShortCut "$R1" "$INSTDIR\${PRODUCT_MAIN_EXE}" '${PRODUCT_TASKBAR_ARG}'
   		ExecShell "taskbarpin" "$R1"
   		Delete "$R1"
     ${ElseIf} ${AtLeastWin7}
-    	; É¾³ıÒÑÓĞÍ¼±ê
+    	; åˆ é™¤å·²æœ‰å›¾æ ‡
     	StrCpy $R1 "$QUICKLAUNCH\User Pinned\TaskBar"
         ${StdUtils.InvokeShellVerb} $0 "$R1" "${PRODUCT_NAME}.lnk" ${StdUtils.Const.ShellVerb.UnpinFromTaskbar}
 
-    	; Ê¹ÓÃ²å¼ş´´½¨ÈÎÎñÀ¸Í¼±ê
+    	; ä½¿ç”¨æ’ä»¶åˆ›å»ºä»»åŠ¡æ å›¾æ ‡
   		StrCpy $R1 "$INSTDIR\${PRODUCT_NAME}.lnk"
   		CreateShortCut "$R1" "$INSTDIR\${PRODUCT_MAIN_EXE}" '${PRODUCT_TASKBAR_ARG}'
         ${StdUtils.InvokeShellVerb} $0 "$INSTDIR" "${PRODUCT_NAME}.lnk" ${StdUtils.Const.ShellVerb.PinToTaskbar}
@@ -217,12 +219,12 @@ Function CreateTaskbar
   	!insertmacro PostPasEvent ${PAS_INSTALL_WITH_TASKBAR}
 FunctionEnd
 
-; Éú³ÉĞ¶ÔØÈë¿Ú
+; ç”Ÿæˆå¸è½½å…¥å£
 Function BuildUninstaller
 	;WriteUninstaller "$INSTDIR\${PRODUCT_UNINSTALL_NAME}"   ;Create uninstaller
-	File "..\addon\${PRODUCT_UNINSTALL_NAME}"
+	# File "..\addon\${PRODUCT_UNINSTALL_NAME}"
 
-	; Ìí¼ÓĞ¶ÔØĞÅÏ¢µ½¿ØÖÆÃæ°å
+	; æ·»åŠ å¸è½½ä¿¡æ¯åˆ°æ§åˆ¶é¢æ¿
 	WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "DisplayName"     "${PRODUCT_DESCRIPTION}"
 	WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "UninstallString" "$INSTDIR\${PRODUCT_UNINSTALL_NAME}"
 	WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "DisplayIcon"     "$INSTDIR\${PRODUCT_MAIN_EXE}"
@@ -238,22 +240,22 @@ FunctionEnd
 
 /*
 Function SlientInstall
-	!insertmacro "NSDM_DEBUG_INFO" "½øÈë¾²Ä¬°²×°"
+	!insertmacro "NSDM_DEBUG_INFO" "è¿›å…¥é™é»˜å®‰è£…"
 
 	!insertmacro PostPasEvent ${PAS_BEGIN_INSTALL}
 
-	; ¼ì²éÊÇ·ñÒÑ¾­°²×°¡£ÒÑÓĞ°æ±¾£¬ÎŞÂÛĞÂ¾ÉÖ±½ÓÍË³ö
+	; æ£€æŸ¥æ˜¯å¦å·²ç»å®‰è£…ã€‚å·²æœ‰ç‰ˆæœ¬ï¼Œæ— è®ºæ–°æ—§ç›´æ¥é€€å‡º
 
 	ReadRegStr $1 ${PRODUCT_ROOT_KEY} "${PRODUCT_SUB_KEY}" "version"
 	${If} "$1" != ""
-		!insertmacro "NSDM_DEBUG_INFO" "ÒÑ¾­°²×°¹ı£¬ÍË³ö"
+		!insertmacro "NSDM_DEBUG_INFO" "å·²ç»å®‰è£…è¿‡ï¼Œé€€å‡º"
 		Goto WaitThread_PostPasEvent
 	${EndIf}
 
-	; ¼æÈİ¾É°æ±¾
+	; å…¼å®¹æ—§ç‰ˆæœ¬
 	ReadRegStr $1 "HKLM" "${PRODUCT_SUB_KEY}" "version"
 	${If} "$1" != ""
-		!insertmacro "NSDM_DEBUG_INFO" "ÒÑ¾­°²×°¹ı£¬ÍË³ö"
+		!insertmacro "NSDM_DEBUG_INFO" "å·²ç»å®‰è£…è¿‡ï¼Œé€€å‡º"
 		Goto WaitThread_PostPasEvent
 	${EndIf}
 
@@ -261,43 +263,43 @@ Function SlientInstall
 	Call SetLastInstallPath
 	!insertmacro "NSDM_DEBUG_INFO" "SetLastInstallPath INSTDIR $INSTDIR"
 	
-	; ¼ì²é´ÅÅÌ¿Õ¼äÊÇ·ñ×ã¹»
+	; æ£€æŸ¥ç£ç›˜ç©ºé—´æ˜¯å¦è¶³å¤Ÿ
 	!insertmacro "GetFreeSpaceSize" "$INSTDIR" $R0
 	System::Int64Op $R0 > ${INSTALL_SIZE}
 	Pop $0
 	${If} $0 == 0
-		!insertmacro "NSDM_DEBUG_INFO" "´ÅÅÌ¿Õ¼ä²»×ã£¬ÍË³ö"
+		!insertmacro "NSDM_DEBUG_INFO" "ç£ç›˜ç©ºé—´ä¸è¶³ï¼Œé€€å‡º"
 		Goto WaitThread_PostPasEvent
 	${EndIf}
 
-	; ¼ì²é¿Í»§¶Ë½ø³ÌÊÇ·ñÔÚÔËĞĞ
+	; æ£€æŸ¥å®¢æˆ·ç«¯è¿›ç¨‹æ˜¯å¦åœ¨è¿è¡Œ
 	!insertmacro "ProcessDetect" "${PRODUCT_CLIENT_EXE}" ";" ""
 	Pop $0
 	${If} $0 != 0
-		!insertmacro "NSDM_DEBUG_INFO" "ÒÑ¾­ÓĞÒ»¸ö°²×°½ø³ÌÊµÀı£¬ÍË³ö"
+		!insertmacro "NSDM_DEBUG_INFO" "å·²ç»æœ‰ä¸€ä¸ªå®‰è£…è¿›ç¨‹å®ä¾‹ï¼Œé€€å‡º"
 		Goto WaitThread_PostPasEvent
 	${EndIf}
 
 	SetRegView 32
-	; ¼ì²âvcredist
+	; æ£€æµ‹vcredist
 	Call CheckVCRedist
 	IfErrors 0 Install_Continue
-		!insertmacro "NSDM_DEBUG_INFO" "µ±Ç°ÏµÍ³Ã»ÓĞ¼ì²âµ½vc2008 redist"
+		!insertmacro "NSDM_DEBUG_INFO" "å½“å‰ç³»ç»Ÿæ²¡æœ‰æ£€æµ‹åˆ°vc2008 redist"
 		;GetFunctionAddress $0 InstallVCRedist
     ;BgWorker::CallAndWait
 		Call InstallVCRedist
 		IfErrors 0 Install_Continue
 			Call HandleVCRedistCancel
-			!insertmacro "NSDM_DEBUG_INFO" "°²×°vc2008 redistÊ§°Ü£¬¼´½«ÍË³ö"
+			!insertmacro "NSDM_DEBUG_INFO" "å®‰è£…vc2008 redistå¤±è´¥ï¼Œå³å°†é€€å‡º"
 			Goto WaitThread_PostPasEvent
  	Install_Continue:
-  		!insertmacro "NSDM_DEBUG_INFO" "ÒÑ¾­°²×°vc2008 redist"
+  		!insertmacro "NSDM_DEBUG_INFO" "å·²ç»å®‰è£…vc2008 redist"
 
-	; Ğ´Èë×¢²á±íĞÅÏ¢
+	; å†™å…¥æ³¨å†Œè¡¨ä¿¡æ¯
 	WriteRegStr ${PRODUCT_ROOT_KEY} "${PRODUCT_SUB_KEY}" "installDir" "$INSTDIR"
 	WriteRegStr ${PRODUCT_ROOT_KEY} "${PRODUCT_SUB_KEY}" "version" "${PRODUCT_VERSION}"
 
- 	!insertmacro "NSDM_DEBUG_INFO" "½âÑ¹ÎÄ¼şµ½Ö¸¶¨Ä¿Â¼"
+ 	!insertmacro "NSDM_DEBUG_INFO" "è§£å‹æ–‡ä»¶åˆ°æŒ‡å®šç›®å½•"
   Call InstallFuncSlient
 
 	SetShellVarContext ${PRODUCT_LNK_USER}
@@ -307,10 +309,10 @@ Function SlientInstall
 	Pop $0
 			!insertmacro "NSDM_DEBUG_INFO" "$0"
 	${If} $0 == 0
-		!insertmacro "NSDM_DEBUG_INFO" "´´½¨×ÀÃæ¿ì½İ·½Ê½"
+		!insertmacro "NSDM_DEBUG_INFO" "åˆ›å»ºæ¡Œé¢å¿«æ·æ–¹å¼"
 	  CreateShortCut "$DESKTOP\${PRODUCT_NAME}.lnk" "$INSTDIR\${PRODUCT_MAIN_EXE}" '${PRODUCT_DESKTOP_ARG}'
 	${Else}
-		!insertmacro "NSDM_DEBUG_INFO" "¼ì²âµ½Æô¶¯²ÎÊı/nodeskicon£¬²»´´½¨×ÀÃæ¿ì½İ·½Ê½"
+		!insertmacro "NSDM_DEBUG_INFO" "æ£€æµ‹åˆ°å¯åŠ¨å‚æ•°/nodeskiconï¼Œä¸åˆ›å»ºæ¡Œé¢å¿«æ·æ–¹å¼"
 	${EndIf}
 
 	Push "/notaskbaricon"
@@ -318,14 +320,14 @@ Function SlientInstall
 	Pop $0
 		!insertmacro "NSDM_DEBUG_INFO" "$0"
 	${If} $0 == 0
-		!insertmacro "NSDM_DEBUG_INFO" "´´½¨ÈÎÎñÀ¸¿ì½İ·½Ê½"
+		!insertmacro "NSDM_DEBUG_INFO" "åˆ›å»ºä»»åŠ¡æ å¿«æ·æ–¹å¼"
   	Call CreateTaskbar
 	${Else}
-		!insertmacro "NSDM_DEBUG_INFO" "¼ì²âµ½Æô¶¯²ÎÊı/notaskbaricon£¬²»´´½¨ÈÎÎñÀ¸¿ì½İ·½Ê½"
+		!insertmacro "NSDM_DEBUG_INFO" "æ£€æµ‹åˆ°å¯åŠ¨å‚æ•°/notaskbariconï¼Œä¸åˆ›å»ºä»»åŠ¡æ å¿«æ·æ–¹å¼"
 	${EndIf}
 
 
-  !insertmacro "NSDM_DEBUG_INFO" "´´½¨¿ªÊ¼²Ëµ¥¿ì½İ·½Ê½"
+  !insertmacro "NSDM_DEBUG_INFO" "åˆ›å»ºå¼€å§‹èœå•å¿«æ·æ–¹å¼"
   Call CreateStartMenu
 
   ${RefreshShellIcons}
@@ -336,23 +338,23 @@ Function SlientInstall
 	StrCpy $InstallState "done"
 	!insertmacro PostPasEvent ${PAS_INSTALL_SUCCESS}
 
-	;!insertmacro "NSDM_DEBUG_INFO" "Æô¶¯ÓÎÏ·´óÌü"
+	;!insertmacro "NSDM_DEBUG_INFO" "å¯åŠ¨æ¸¸æˆå¤§å…"
 	;Exec '"$INSTDIR\${PRODUCT_MAIN_EXE}" ${PRODUCT_DESKTOP_ARG}'
 	;!insertmacro PostPasEvent ${PAS_RUN_CLIENT}
 	
-	; Æô¶¯¼Æ»®ÈÎÎñ½ø³Ì
+	; å¯åŠ¨è®¡åˆ’ä»»åŠ¡è¿›ç¨‹
 	; Exec '"$INSTDIR\${PRODUCT_SCHEDULE_EXE}" ""'
-	nsutil::NSUpdateSchedule "0EDF91F7-D4D0-4DD7-B739-62067F6683FC" "YYÓÎÏ·´óÌü¸üĞÂÈÎÎñ" "$INSTDIR\popup" "$INSTDIR\popup\${PRODUCT_SCHEDULE_EXE}" "--type=yyGameOem" "60"
+	nsutil::NSUpdateSchedule "0EDF91F7-D4D0-4DD7-B739-62067F6683FC" "YYæ¸¸æˆå¤§å…æ›´æ–°ä»»åŠ¡" "$INSTDIR\popup" "$INSTDIR\popup\${PRODUCT_SCHEDULE_EXE}" "--type=yyGameOem" "60"
 
 
-	; °²×°½áÊø£¬Êı¾İÉÏ±¨ºÍµÈ´ıÉÏ±¨½áÊø
+	; å®‰è£…ç»“æŸï¼Œæ•°æ®ä¸ŠæŠ¥å’Œç­‰å¾…ä¸ŠæŠ¥ç»“æŸ
 WaitThread_PostPasEvent:
-	!insertmacro "NSDM_DEBUG_INFO" "°²×°½áÊø£¬Æô¶¯Êı¾İÉÏ±¨"
+	!insertmacro "NSDM_DEBUG_INFO" "å®‰è£…ç»“æŸï¼Œå¯åŠ¨æ•°æ®ä¸ŠæŠ¥"
 
 	!insertmacro PostSessionData
 	${nscurl.WaitDone} 10000 $0
 
-	!insertmacro "NSDM_DEBUG_INFO" "°²×°½áÊø£¬Êı¾İÉÏ±¨½áÊø"
+	!insertmacro "NSDM_DEBUG_INFO" "å®‰è£…ç»“æŸï¼Œæ•°æ®ä¸ŠæŠ¥ç»“æŸ"
 FunctionEnd*/
 
 Function ParameterDetect
@@ -373,7 +375,7 @@ FunctionEnd
 Function GUIInstall
 	StrCpy $InstallState "doing"
 
-	!insertmacro NSDM_DEBUG_INFO "³õÊ¼»¯DM¿â"
+	!insertmacro NSDM_DEBUG_INFO "åˆå§‹åŒ–DMåº“"
 	${nsdm.InitSkinEngine} ${DM_SKIN_PATH} "dui_install_wnd" "install_frame" $NSDM_OUT
 
 	Call BindUIControls
@@ -383,21 +385,21 @@ Function GUIInstall
 	Call CheckInstalled
 
 	${If} $OverwriteInstall == 2
-		!insertmacro NSDM_DEBUG_INFO "°²×°°ü°æ±¾ºÅ²»´óÓÚ±¾µØ°æ±¾ºÅ£¬Ö±½ÓÆô¶¯¿Í»§¶Ë"
+		!insertmacro NSDM_DEBUG_INFO "å®‰è£…åŒ…ç‰ˆæœ¬å·ä¸å¤§äºæœ¬åœ°ç‰ˆæœ¬å·ï¼Œç›´æ¥å¯åŠ¨å®¢æˆ·ç«¯"
 		StrCpy $InstallState "done"
 		Call OnBtnStartGame
 	${Else}
-		!insertmacro NSDM_DEBUG_INFO "Æô¶¯°²×°¶¨Ê±Æ÷£¬×¼±¸½øĞĞ°²×°"
+		!insertmacro NSDM_DEBUG_INFO "å¯åŠ¨å®‰è£…å®šæ—¶å™¨ï¼Œå‡†å¤‡è¿›è¡Œå®‰è£…"
 		${nsdm.Run}
 	${EndIf}
-	!insertmacro NSDM_DEBUG_INFO "Ğ¶ÔØDM¿â"
+	!insertmacro NSDM_DEBUG_INFO "å¸è½½DMåº“"
 
 	!insertmacro PostSessionData
 	${nscurl.WaitDone} 10000 $0
 FunctionEnd
 
 Function DMPage
-	;!insertmacro NSDM_DEBUG_INFO "·Ç¾²Ä¬°²×°"
+	;!insertmacro NSDM_DEBUG_INFO "éé™é»˜å®‰è£…"
 	Call GUIInstall
 FunctionEnd
 
@@ -417,7 +419,7 @@ Function InitDialog
 	!insertmacro PostPasEvent ${PAS_BEGIN_INSTALL}
 FunctionEnd
 
-; ¼ì²âÊÇ·ñÒÑ¾­°²×°¿Í»§¶Ë
+; æ£€æµ‹æ˜¯å¦å·²ç»å®‰è£…å®¢æˆ·ç«¯
 Function CheckInstalled
 	StrCpy $1 "$INSTDIR\${PRODUCT_MAIN_EXE}"
 	StrCpy $2 "$INSTDIR\Version.ini"
@@ -426,34 +428,34 @@ Function CheckInstalled
 	
 	ReadINIStr $3 "$2" "gbox" "NewVersion"
 	${If} "$3" == ""
-		# ÓÃ»§Ã»ÓĞ°²×°¿Í»§¶Ë
+		# ç”¨æˆ·æ²¡æœ‰å®‰è£…å®¢æˆ·ç«¯
 		StrCpy $OverwriteInstall 0
 	${Else}
 		${VersionCompare} "${PRODUCT_VERSION}" "$3" $4
 		${If} $4 == 1
-			# °²×°°ü°æ±¾½ÏĞÂ
+			# å®‰è£…åŒ…ç‰ˆæœ¬è¾ƒæ–°
 			StrCpy $OverwriteInstall 1
 		${Else}
-			# ±¾µØ°æ±¾½ÏĞÂ
-			# »òÕß°æ±¾ÏàÍ¬
+			# æœ¬åœ°ç‰ˆæœ¬è¾ƒæ–°
+			# æˆ–è€…ç‰ˆæœ¬ç›¸åŒ
 			StrCpy $OverwriteInstall 2
 		${EndIf}
-		!insertmacro "NSDM_DEBUG_INFO" "${PRODUCT_VERSION}Óë$3µÄ±È½Ï½á¹ûÎª$4"
+		!insertmacro "NSDM_DEBUG_INFO" "${PRODUCT_VERSION}ä¸$3çš„æ¯”è¾ƒç»“æœä¸º$4"
 	${EndIf}
 
-	# ²»´æÔÚlauncherÔòÖ±½Ó·µ»Ø£¬ÎŞÊÓÅäÖÃÎÄ¼ş
+	# ä¸å­˜åœ¨launcheråˆ™ç›´æ¥è¿”å›ï¼Œæ— è§†é…ç½®æ–‡ä»¶
 	out:
 FunctionEnd
 
 Function .onInit
-	; ¼ì²é°²×°½ø³ÌÊÇ·ñÔÚÔËĞĞ
+	; æ£€æŸ¥å®‰è£…è¿›ç¨‹æ˜¯å¦åœ¨è¿è¡Œ
 	!insertmacro "CheckSetupRunning" ${SETUP_MUTEX_NAME} $NSDM_OUT
 	${If} $NSDM_OUT == 1
-		!insertmacro "NSDM_DEBUG_INFO" "°²×°»òĞ¶ÔØ³ÌĞòÒÑ¾­ÔÚÔËĞĞ£¬ÍË³ö"
+		!insertmacro "NSDM_DEBUG_INFO" "å®‰è£…æˆ–å¸è½½ç¨‹åºå·²ç»åœ¨è¿è¡Œï¼Œé€€å‡º"
 		IfSilent 0 MsgBoxAndAbort
 			Abort
 		MsgBoxAndAbort:
-			;MessageBox MB_OK|MB_ICONEXCLAMATION "°²×°»òĞ¶ÔØ³ÌĞòÒÑ¾­ÔÚÔËĞĞ¡£"
+			;MessageBox MB_OK|MB_ICONEXCLAMATION "å®‰è£…æˆ–å¸è½½ç¨‹åºå·²ç»åœ¨è¿è¡Œã€‚"
    		Abort
 	${EndIf}
 
@@ -467,16 +469,16 @@ Function .onInit
 	!insertmacro PostSessionData
 
 	;IfSilent 0 NonSlientInstall
-		;!insertmacro NSDM_DEBUG_INFO "¾²Ä¬°²×°"
+		;!insertmacro NSDM_DEBUG_INFO "é™é»˜å®‰è£…"
 		;Call SlientInstall
 	;NonSlientInstall:
 FunctionEnd
 
-; °²×°½çÃæµã»÷ÍË³ö£¬¸ø³öÌáÊ¾
+; å®‰è£…ç•Œé¢ç‚¹å‡»é€€å‡ºï¼Œç»™å‡ºæç¤º
 Function OnExitDUISetup
-	!insertmacro "NSDM_DEBUG_INFO" "¼´½«ÍË³ö£¬µ±Ç°°²×°×´Ì¬Îª£º$InstallState"
+	!insertmacro "NSDM_DEBUG_INFO" "å³å°†é€€å‡ºï¼Œå½“å‰å®‰è£…çŠ¶æ€ä¸ºï¼š$InstallState"
 	${If} $InstallState == "doing"
-		${nsdm.MessageBox} "dui_message_dlg" "$MBSize" "label_popup_title" "ÌáÊ¾" "label_popup_content" "È·¶¨ÍË³ö°²×°Âğ£¿" ${MB_OKCANCEL} $NSDM_OUT
+		${nsdm.MessageBox} "dui_message_dlg" "$MBSize" "label_popup_title" "æç¤º" "label_popup_content" "ç¡®å®šé€€å‡ºå®‰è£…å—ï¼Ÿ" ${MB_OKCANCEL} $NSDM_OUT
 		!insertmacro "NSDM_DEBUG_INFO" "$NSDM_OUT"
 		${If} $NSDM_OUT != ${IDOK}
 			Return
@@ -515,7 +517,7 @@ Function SetInstallFolder
 	${If} "$NSDM_OUT" != "0"
 	${AndIf} "$NSDM_OUT" != ""
 		;${If} $OverwriteInstall == 0
-		;	; ·Ç¸²¸Ç°²×°Ä£Ê½ÏÂ£¬²ÅÔÊĞíµ÷Õû°²×°Â·¾¶
+		;	; éè¦†ç›–å®‰è£…æ¨¡å¼ä¸‹ï¼Œæ‰å…è®¸è°ƒæ•´å®‰è£…è·¯å¾„
 		;	nsutil::NSCreateSeparatePath "$NSDM_OUT" "${PRODUCT_NAME}"
 		;	Pop $NSDM_OUT
 		;${EndIf}
@@ -525,12 +527,12 @@ Function SetInstallFolder
 		${nsdm.SetControlAttr} "edit_install_folder" "$NSDM_OUT" "text"
 
 		;!insertmacro "FormatSizeString" ${ProuctINSTALL_SIZE} $R0
-		;StrCpy $R1 "ËùĞè¿Õ¼ä: $R0"
+		;StrCpy $R1 "æ‰€éœ€ç©ºé—´: $R0"
 		;${nsdm.SetControlAttr} "label_install_size" $R1 "text"
 
 		;!insertmacro "GetFreeSpaceSize" "$NSDM_OUT" $R0
 		;!insertmacro "FormatSizeString" $R0 $R0
-		;StrCpy $R1 "´ÅÅÌ¿ÉÓÃ¿Õ¼ä: $R0"
+		;StrCpy $R1 "ç£ç›˜å¯ç”¨ç©ºé—´: $R0"
 		;${nsdm.SetControlAttr} "label_useable_size" $R1 "text"
 
 	${EndIf}
@@ -559,40 +561,40 @@ Function InstallVCRedist
 FunctionEnd
 
 Function HandleVCRedistCancel
-	${nsdm.MessageBox} "dui_message_dlg" "$MBSize" "label_popup_title" "´íÎóÌáÊ¾" "label_popup_content" "µ±Ç°»·¾³ÎŞ·¨°²×°${PRODUCT_NAME}£¬°²×°³ÌĞò¼´½«ÍË³ö£¡" ${MB_OKCANCEL} $0
+	${nsdm.MessageBox} "dui_message_dlg" "$MBSize" "label_popup_title" "é”™è¯¯æç¤º" "label_popup_content" "å½“å‰ç¯å¢ƒæ— æ³•å®‰è£…${PRODUCT_NAME}ï¼Œå®‰è£…ç¨‹åºå³å°†é€€å‡ºï¼" ${MB_OKCANCEL} $0
 	StrCpy $InstallState "done"
 	Call OnExitDUISetup
 FunctionEnd
 
-#ÉèÖÃ×îÖÕ°²×°Â·¾¶
+#è®¾ç½®æœ€ç»ˆå®‰è£…è·¯å¾„
 Function SetLastInstallPath
 	StrCpy $INSTDIR "$INSTDIR\${PRODUCT_NAME}"
 FunctionEnd
 
 Function OnBtnClickInstall
-	; È·±£°²×°Â·¾¶ÎªÓÃ»§×îÖÕÑ¡ÔñÂ·¾¶
+	; ç¡®ä¿å®‰è£…è·¯å¾„ä¸ºç”¨æˆ·æœ€ç»ˆé€‰æ‹©è·¯å¾„
 	${nsdm.GetControlAttr} "edit_install_folder" "text" $NSDM_OUT
 	Call SetInstallFolder
 
-	;Éú³É×îÖÕµÄ°²×°Â·¾¶
+	;ç”Ÿæˆæœ€ç»ˆçš„å®‰è£…è·¯å¾„
 	;${If} $OverwriteInstall == 0
-		; ·Ç¸²¸Ç°²×°Ä£Ê½ÏÂ£¬²ÅÉèÖÃ×îÖÕÂ·¾¶
+		; éè¦†ç›–å®‰è£…æ¨¡å¼ä¸‹ï¼Œæ‰è®¾ç½®æœ€ç»ˆè·¯å¾„
 		;Call SetLastInstallPath
 	;${EndIf}
 
 
-	; ¼ì²é´ÅÅÌ¿Õ¼äÊÇ·ñ×ã¹»
+	; æ£€æŸ¥ç£ç›˜ç©ºé—´æ˜¯å¦è¶³å¤Ÿ
 	!insertmacro "GetFreeSpaceSize" "$NSDM_OUT" $R0
 	System::Int64Op $R0 > ${PRODUCT_INSTALL_SIZE}
 	Pop $0
 	${If} $0 == 0
-		!insertmacro "NSDM_DEBUG_INFO" "$NSDM_OUT¿ÉÓÃ¿Õ¼ä$R0£¬¿Í»§¶ËĞèÒª¿Õ¼ä${PRODUCT_INSTALL_SIZE}"
+		!insertmacro "NSDM_DEBUG_INFO" "$NSDM_OUTå¯ç”¨ç©ºé—´$R0ï¼Œå®¢æˆ·ç«¯éœ€è¦ç©ºé—´${PRODUCT_INSTALL_SIZE}"
 		!insertmacro PostPasEvent ${PAS_INSTALL_FAILED_DESKSPACE}
-		${nsdm.MessageBox} "dui_message_dlg" "$MBSize" "label_popup_title" "´íÎóÌáÊ¾" "label_popup_content" "´ÅÅÌ¿Õ¼ä²»×ã£¬ÇëÑ¡ÔñÆäËû´ÅÅÌ!" ${MB_OKCANCEL} $0
+		${nsdm.MessageBox} "dui_message_dlg" "$MBSize" "label_popup_title" "é”™è¯¯æç¤º" "label_popup_content" "ç£ç›˜ç©ºé—´ä¸è¶³ï¼Œè¯·é€‰æ‹©å…¶ä»–ç£ç›˜!" ${MB_OKCANCEL} $0
 		Return
 	${EndIf}
 
-	; ¼ì²é¿Í»§¶Ë½ø³ÌÊÇ·ñÔÚÔËĞĞ
+	; æ£€æŸ¥å®¢æˆ·ç«¯è¿›ç¨‹æ˜¯å¦åœ¨è¿è¡Œ
 	Push "${PRODUCT_CLIENT_EXE}"
 	Call TerminateIfExists
 	Pop $0
@@ -600,10 +602,10 @@ Function OnBtnClickInstall
 		Return
 	${EndIf}
 
-	; Òş²ØÀ©Õ¹´°¿Ú
+	; éšè—æ‰©å±•çª—å£
 	Call HideCustomWnd
 
-	; ÅĞ¶ÏÊÇ·ñ×Ô¶¨Òå°²×°
+	; åˆ¤æ–­æ˜¯å¦è‡ªå®šä¹‰å®‰è£…
 	${nsdm.GetControlAttr} "edit_install_folder" "text" $NSDM_OUT
 	StrCmp "$INSTDIR" "$NSDM_OUT" 0 begin_custom_install
 	!insertmacro PostPasEvent ${PAS_INSTALL_DEFAULT}
@@ -615,38 +617,38 @@ Function OnBtnClickInstall
 	${nsdm.SelectPage} "wnd_installling"
 
 	SetRegView 32
-	; ¼ì²âvcredist
+	; æ£€æµ‹vcredist
 	;Call CheckVCRedist
 	;IfErrors 0 Install_Continue
-	;!insertmacro "NSDM_DEBUG_INFO" "µ±Ç°ÏµÍ³Ã»ÓĞ¼ì²âµ½vc2008 redist"
+	;!insertmacro "NSDM_DEBUG_INFO" "å½“å‰ç³»ç»Ÿæ²¡æœ‰æ£€æµ‹åˆ°vc2008 redist"
 	;GetFunctionAddress $0 InstallVCRedist
     ;BgWorker::CallAndWait
 	;IfErrors 0 Install_Continue
 	;Call HandleVCRedistCancel
-	;!insertmacro "NSDM_DEBUG_INFO" "°²×°vc2008 redistÊ§°Ü£¬¼´½«ÍË³ö"
+	;!insertmacro "NSDM_DEBUG_INFO" "å®‰è£…vc2008 redistå¤±è´¥ï¼Œå³å°†é€€å‡º"
 	;Return
  ;Install_Continue:
- 	;!insertmacro "NSDM_DEBUG_INFO" "ÒÑ¾­°²×°vc2008 redist"
+ 	;!insertmacro "NSDM_DEBUG_INFO" "å·²ç»å®‰è£…vc2008 redist"
 
-	; Ğ´Èë×¢²á±íĞÅÏ¢
+	; å†™å…¥æ³¨å†Œè¡¨ä¿¡æ¯
 	WriteRegStr ${PRODUCT_ROOT_KEY} "${PRODUCT_SUB_KEY}" "installDir" "$INSTDIR"
 	WriteRegStr ${PRODUCT_ROOT_KEY} "${PRODUCT_SUB_KEY}" "version" "${PRODUCT_VERSION}"
 
-	${nsdm.SetControlAttr} "btn_close" 1 "bdisable" ; ÊÍ·ÅÎÄ¼şÖĞ½ûÖ¹ÍË³ö
-	; Æô¶¯Ò»¸öµÍÓÅÏÈ¼¶µÄºóÌ¨Ïß³Ì
+	${nsdm.SetControlAttr} "btn_close" 1 "bdisable" ; é‡Šæ”¾æ–‡ä»¶ä¸­ç¦æ­¢é€€å‡º
+	; å¯åŠ¨ä¸€ä¸ªä½ä¼˜å…ˆçº§çš„åå°çº¿ç¨‹
     GetFunctionAddress $0 InstallFunc
     BgWorker::CallAndWait
     ${nsdm.SetControlAttr} "btn_close" 0 "bdisable"
 
 	IfFileExists "$INSTDIR\${PRODUCT_MAIN_EXE}" unpack_success 0
-	!insertmacro "NSDM_DEBUG_INFO" "ÎÄ¼ş½âÑ¹Ê§°Ü£¬ÍË³ö°²×°"
+	!insertmacro "NSDM_DEBUG_INFO" "æ–‡ä»¶è§£å‹å¤±è´¥ï¼Œé€€å‡ºå®‰è£…"
 	!insertmacro PostPasEvent ${PAS_INSTALL_FAILED_UNPACK}
 	StrCpy $InstallState "done"
 	Call OnBtnStartGame
 	Return
 
 unpack_success:
-	${nsdm.SetControlAttr} "label_counter_start" "3 sºó×Ô¶¯ÌåÑéGBoxä¯ÀÀÆ÷" "text"
+	${nsdm.SetControlAttr} "label_counter_start" "3 såè‡ªåŠ¨ä½“éªŒGBoxæµè§ˆå™¨" "text"
 	${nsdm.SelectPage} "wnd_installed"
 
 	StrCpy $Countdown 3
@@ -675,7 +677,7 @@ unpack_success:
 	WriteINIStr "$INSTDIR\Config.ini" "pas" "channeltag" "${PRODUCT_CHANNEL_TAG}"
 FunctionEnd
 
-; ×Ô¶¨Òå°²×°checkbox
+; è‡ªå®šä¹‰å®‰è£…checkbox
 Function OnBtnCustomInstall
 	${nsdm.GetControlAttr} "btn_checkbox_custom_install" "check" $0
 	${If} $0 == 0
@@ -688,18 +690,18 @@ FunctionEnd
 Function HideCustomWnd
 	!insertmacro "NSDM_DEBUG_INFO" "HideCustomWnd"
 	StrCpy $MBSize "640,400"
-	${nsdm.SetControlAttr} "btn_checkbox_custom_install" "×Ô¶¨Òå°²×°" "text"
+	${nsdm.SetControlAttr} "btn_checkbox_custom_install" "è‡ªå®šä¹‰å®‰è£…" "text"
 	${nsdm.SetWindowAttr} "$MBSize" "possize"
 FunctionEnd
 
 Function ShowCustomWnd
 	!insertmacro "NSDM_DEBUG_INFO" "ShowCustomWnd"
 	StrCpy $MBSize "640,540"
-	${nsdm.SetControlAttr} "btn_checkbox_custom_install" "ÊÕÆğ" "text"
+	${nsdm.SetControlAttr} "btn_checkbox_custom_install" "æ”¶èµ·" "text"
 	${nsdm.SetWindowAttr} "$MBSize" "possize"
 FunctionEnd
 
-; Ğ­Òécheckbox
+; åè®®checkbox
 Function OnBtnCheckLicense
 	${nsdm.GetControlAttr} "btn_checkbox_license" "check" $0
 	${If} $0 == 0
@@ -729,7 +731,7 @@ Function OnBtnCheckLicense
 	${EndIf}
 FunctionEnd
 
-; µ±edit¿Ø¼şÄÚÈİ¸Ä±äÊ±µ÷ÓÃ
+; å½“editæ§ä»¶å†…å®¹æ”¹å˜æ—¶è°ƒç”¨
 Function OnPathEditChange
 	${nsdm.GetControlAttr} "edit_install_folder" "text" $NSDM_OUT
 	Push $0
@@ -743,16 +745,16 @@ Function OnBtnRetry
 	!insertmacro "NSDM_DEBUG_INFO" "OnBtnRetry"
 FunctionEnd
 
-; °ó¶¨°²×°½çÃæÊÂ¼ş
+; ç»‘å®šå®‰è£…ç•Œé¢äº‹ä»¶
 Function BindUIControls
-	; È«¾Ö
+	; å…¨å±€
 	GetFunctionAddress $0 "OnExitDUISetup"
 	${nsdm.RegisterCommandNotify} "btn_close" $0
 	
 	GetFunctionAddress $0 "OnBtnMin"
 	${nsdm.RegisterCommandNotify} "btn_min" $0
 
-	; Ö÷Ò³
+	; ä¸»é¡µ
 	GetFunctionAddress $0 "OnBtnClickLicense"
 	${nsdm.RegisterCommandNotify} "btn_license" $0
 
@@ -774,26 +776,26 @@ Function BindUIControls
 	GetFunctionAddress $0 "OnBtnRetry"
 	${nsdm.RegisterCommandNotify} "btn_retry" $0
 
-	; °²×°Íê³ÉÒ³Ãæ
+	; å®‰è£…å®Œæˆé¡µé¢
 	GetFunctionAddress $0 "OnBtnStartGame"
 	${nsdm.RegisterCommandNotify} "btn_start_client" $0
 FunctionEnd
 
 Function OnCountdownTimer
-	!insertmacro "NSDM_DEBUG_INFO" "Æô¶¯ÓÎÏ·µ¹¼ÆÊ±: $Countdown"
+	!insertmacro "NSDM_DEBUG_INFO" "å¯åŠ¨æ¸¸æˆå€’è®¡æ—¶: $Countdown"
 
 	IntOp $Countdown $Countdown - 1
 	${If} $Countdown == 0
 		${nsdm.KillTimer} $CountdownTimer
 		Call OnBtnStartGame
 	${Else}
-		StrCpy $0 "$Countdown sºó×Ô¶¯ÌåÑéGBoxä¯ÀÀÆ÷"
+		StrCpy $0 "$Countdown såè‡ªåŠ¨ä½“éªŒGBoxæµè§ˆå™¨"
 		${nsdm.SetControlAttr} "label_counter_start" "$0" "text"
 	${EndIf}
 FunctionEnd
 
 Function TerminateIfExists
-	Pop $R2 ; ½ø³ÌÃû¼¯ºÏ
+	Pop $R2 ; è¿›ç¨‹åé›†åˆ
 
 	!insertmacro "ProcessDetect" "$R2" ";" "$INSTDIR"
 	Pop $0
@@ -802,7 +804,7 @@ Function TerminateIfExists
 		Return
 	${EndIf}
 
-	${nsdm.MessageBox} "dui_message_dlg" "$MBSize" "label_popup_title" "ÌáÊ¾" "label_popup_content" "¼ì²âµ½${PRODUCT_NAME}ÕıÔÚÔËĞĞ£¬µã»÷[È·¶¨]Ç¿ÖÆ½áÊø½ø³Ì£¡" ${MB_OKCANCEL} $0
+	${nsdm.MessageBox} "dui_message_dlg" "$MBSize" "label_popup_title" "æç¤º" "label_popup_content" "æ£€æµ‹åˆ°${PRODUCT_NAME}æ­£åœ¨è¿è¡Œï¼Œç‚¹å‡»[ç¡®å®š]å¼ºåˆ¶ç»“æŸè¿›ç¨‹ï¼" ${MB_OKCANCEL} $0
 	${If} $0 == ${IDOK}
 		${Do}
 			!insertmacro "ExeEnd" "$R2" ";" "$INSTDIR"
@@ -814,7 +816,7 @@ Function TerminateIfExists
 		${LoopWhile} $1 == 1
 
 		${If} $1 == -1
-			${nsdm.MessageBox} "dui_message_dlg" "$MBSize" "label_popup_title" "ÌáÊ¾" "label_popup_content" "¼ì²âµ½${PRODUCT_NAME}ÕıÔÚÔËĞĞ£¬ÎŞ·¨Ç¿ÖÆ½áÊø½ø³Ì£¡" ${MB_OKCANCEL} $0
+			${nsdm.MessageBox} "dui_message_dlg" "$MBSize" "label_popup_title" "æç¤º" "label_popup_content" "æ£€æµ‹åˆ°${PRODUCT_NAME}æ­£åœ¨è¿è¡Œï¼Œæ— æ³•å¼ºåˆ¶ç»“æŸè¿›ç¨‹ï¼" ${MB_OKCANCEL} $0
 			Push 0
 		${Else}
 			Push 1

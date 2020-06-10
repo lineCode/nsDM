@@ -30,6 +30,9 @@ list(APPEND CMAKE_MODULE_PATH ${PROJDIR}/Tools/CMake)
 include(PrecompiledHeader)# 添加CMake的模块文件的查找路径
 
 #-------------------------------------------------------------------------------------------------------------------
+set(ZLIB_BUILD_SHARED OFF CACHE BOOL "Build zlib shared library" FORCE)
+set(ZLIB_BUILD_EXAMPLES OFF CACHE BOOL "Build zlib examples" FORCE)
+set(ZLIB_INSTALL OFF CACHE BOOL "Create installation targets (chain builders may want to disable this)" FORCE)
 ADD_SUBDIRECTORY(${PROJDIR}/3rdParty/zlib)
 add_subdirectory(${PROJDIR}/DMMain)
 add_subdirectory(${PROJDIR}/nsCurl)

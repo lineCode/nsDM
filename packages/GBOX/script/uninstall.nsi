@@ -1,26 +1,26 @@
-# ====================== °²×°³ÌĞò³õÊ¼¶¨Òå³£Á¿ ==============================
+# ====================== å®‰è£…ç¨‹åºåˆå§‹å®šä¹‰å¸¸é‡ ==============================
 ;!define _DEBUG 1
 SetCompressor lzma
 !packhdr "$%TEMP%\yygame_exehead.tmp" '"..\..\..\script\upx.exe" -9 "$%TEMP%\yygame_exehead.tmp"'
 
-# ====================== ²úÆ·×Ô¶¨ÒåĞÅÏ¢ ==============================
+# ====================== äº§å“è‡ªå®šä¹‰ä¿¡æ¯ ==============================
 !include "product.nsh"
 
-# ===================== È«¾ÖÉèÖÃ =============================
+# ===================== å…¨å±€è®¾ç½® =============================
 !ifndef _DEBUG
-	!verbose 3 ; ¼Ó¿ì±àÒëËÙ¶È
+	!verbose 3 ; åŠ å¿«ç¼–è¯‘é€Ÿåº¦
 !endif
 
-# ===================== MUIÉèÖÃ =============================
+# ===================== MUIè®¾ç½® =============================
 !include "MUI.nsh"
 
-# ===================== ÎÄ¼ş´ò°ü =============================
+# ===================== æ–‡ä»¶æ‰“åŒ… =============================
 ReserveFile "..\skin\skin.zip"
 ;ReserveFile "..\addon\vcredist_x86.exe"
 ;ReserveFile "..\addon\license.txt"
-!insertmacro MUI_RESERVEFILE_INSTALLOPTIONS ; °²×°Ô¤ÊÍ·ÅÎÄ¼ş
+!insertmacro MUI_RESERVEFILE_INSTALLOPTIONS ; å®‰è£…é¢„é‡Šæ”¾æ–‡ä»¶
 
-# ===================== ÒıÈëµÚÈı·½Í·ÎÄ¼şºÍ²å¼ş =============================
+# ===================== å¼•å…¥ç¬¬ä¸‰æ–¹å¤´æ–‡ä»¶å’Œæ’ä»¶ =============================
 !addincludedir "..\..\..\script"
 !include "utils.nsh"
 !include "nsdm.nsh"
@@ -34,21 +34,21 @@ ReserveFile "..\skin\skin.zip"
 	!addplugindir "..\..\..\publish"
 !endif
 
-# ==================== NSISÊôĞÔ ================================
+# ==================== NSISå±æ€§ ================================
 BrandingText /TRIMLEFT "${PRODUCT_PUBLISHER}"
-SetFont "Î¢ÈíÑÅºÚ" 8
+SetFont "å¾®è½¯é›…é»‘" 8
 CRCCheck on
-InstallDirRegKey ${PRODUCT_ROOT_KEY} "${PRODUCT_SUB_KEY}" "installDir" ; ´Ó×¢²á±í»ñÈ¡°²×°Â·¾¶
-RequestExecutionLevel admin ; È¨ÏŞÇëÇó none|user|highest|admin
-Icon "..\skin\install.ico" ; °²×°Í¼±ê
-UninstallIcon "..\skin\uninstall.ico" ; Ğ¶ÔØÍ¼±ê
-ShowInstDetails nevershow ; ÉèÖÃÊÇ·ñÏÔÊ¾°²×°ÏêÏ¸ĞÅÏ¢
-ShowUninstDetails nevershow ; ÉèÖÃÊÇ·ñÏÔÊ¾Ğ¶ÔØÏêÏ¸ĞÅÏ¢
+InstallDirRegKey ${PRODUCT_ROOT_KEY} "${PRODUCT_SUB_KEY}" "installDir" ; ä»æ³¨å†Œè¡¨è·å–å®‰è£…è·¯å¾„
+RequestExecutionLevel admin ; æƒé™è¯·æ±‚ none|user|highest|admin
+Icon "..\skin\install.ico" ; å®‰è£…å›¾æ ‡
+UninstallIcon "..\skin\uninstall.ico" ; å¸è½½å›¾æ ‡
+ShowInstDetails nevershow ; è®¾ç½®æ˜¯å¦æ˜¾ç¤ºå®‰è£…è¯¦ç»†ä¿¡æ¯
+ShowUninstDetails nevershow ; è®¾ç½®æ˜¯å¦æ˜¾ç¤ºå¸è½½è¯¦ç»†ä¿¡æ¯
 !insertmacro MUI_LANGUAGE "SimpChinese"
-;SilentUnInstall silent ; ¾²Ä¬°²×°
-;SilentInstall silent ; ¾²Ä¬Ğ¶ÔØ
+;SilentUnInstall silent ; é™é»˜å®‰è£…
+;SilentInstall silent ; é™é»˜å¸è½½
 
-# ===================== °²×°°ü°æ±¾ =============================
+# ===================== å®‰è£…åŒ…ç‰ˆæœ¬ =============================
 VIProductVersion                    "${PRODUCT_VERSION}"
 VIAddVersionKey "ProductVersion"    "${PRODUCT_VERSION}"
 VIAddVersionKey "ProductName"       "${PRODUCT_NAME}"
@@ -58,12 +58,12 @@ VIAddVersionKey "InternalName"      "${PRODUCT_NAME}.exe"
 VIAddVersionKey "FileDescription"   "${PRODUCT_DESCRIPTION}"
 VIAddVersionKey "LegalCopyright"    "${PRODUCT_LEGAL}"
 
-# ==================== ×Ô¶¨ÒåÒ³Ãæ ================================
+# ==================== è‡ªå®šä¹‰é¡µé¢ ================================
 ;Page custom DMPage
 
 UninstPage custom un.DMPage
 
-# ==================== È«¾Ö±äÁ¿ ================================
+# ==================== å…¨å±€å˜é‡ ================================
 !define DM_SKIN_PATH "$PLUGINSDIR\skin.zip"
 !define GAME_LICENSE_PATH "$PLUGINSDIR\license.txt"
 !define VC_REDIST_PATH "$PLUGINSDIR\vcredist_x86.exe"
@@ -75,31 +75,31 @@ UninstPage custom un.DMPage
 !define IDCANCEL 2
 ;!define IDRETRY 4
 !define IDCLOSE 8
-Var InstallState ; °²×°×´Ì¬(doing¡¢done)
-Var MessageBoxOkTimer ; Ğ¶ÔØÍê³É½çÃæµ¹¼ÆÊ±¶¨Ê±Æ÷
-;Var Countdown ; µ¹¼ÆÊ±¼ÆÊı
-Var UninstallProgress ; Ğ¶ÔØ½ø¶È
-;Var InstallRoot ; °²×°¸ùÄ¿Â¼
-Var PasSessionId ; pasÉÏ±¨session id
-Var MBSize ; µ¯³ö¿ò´óĞ¡
-;Var OverwriteInstall ; ÊÇ·ñ¸²¸Ç°²×°: 0 Î´¼ì²âµ½ÒÑ°²×°°æ±¾; 1 ¸²¸Ç°²×°; 2 È¡Ïû°²×°
+Var InstallState ; å®‰è£…çŠ¶æ€(doingã€done)
+Var MessageBoxOkTimer ; å¸è½½å®Œæˆç•Œé¢å€’è®¡æ—¶å®šæ—¶å™¨
+;Var Countdown ; å€’è®¡æ—¶è®¡æ•°
+Var UninstallProgress ; å¸è½½è¿›åº¦
+;Var InstallRoot ; å®‰è£…æ ¹ç›®å½•
+Var PasSessionId ; pasä¸ŠæŠ¥session id
+Var MBSize ; å¼¹å‡ºæ¡†å¤§å°
+;Var OverwriteInstall ; æ˜¯å¦è¦†ç›–å®‰è£…: 0 æœªæ£€æµ‹åˆ°å·²å®‰è£…ç‰ˆæœ¬; 1 è¦†ç›–å®‰è£…; 2 å–æ¶ˆå®‰è£…
 Var NSDM_OUT
 
-OutFile    "uninst_build.exe"             ;°²×°°üÃû×Ö
+OutFile    "uninst_build.exe"             ;å®‰è£…åŒ…åå­—
 
-; Éú³ÉĞ¶ÔØ³ÌĞò
-;!finalize 'call "%1" & del "%1"'          ;Ö´ĞĞÉú³ÉµÄuninst_build.exe£¬½öÖ§³Önsis3
+; ç”Ÿæˆå¸è½½ç¨‹åº
+;!finalize 'call "%1" & del "%1"'          ;æ‰§è¡Œç”Ÿæˆçš„uninst_build.exeï¼Œä»…æ”¯æŒnsis3
 ; ${PostExec2} "wscript.exe" "$EXEDIR\..\..\..\script\uac.vbs"
 
 Section "-Dummy"
-	; Éú³Éuninstall.exeÎÄ¼ş£¬²¢·ÅÖÃµ½µ±Ç°Ä¿Â¼ÏÂ
+	; ç”Ÿæˆuninstall.exeæ–‡ä»¶ï¼Œå¹¶æ”¾ç½®åˆ°å½“å‰ç›®å½•ä¸‹
 	WriteUninstaller "$EXEDIR\..\addon\${PRODUCT_UNINSTALL_NAME}"
 	;Nop
 SectionEnd
 
-# ==================== Ğ¶ÔØÇø¶Î ================================
+# ==================== å¸è½½åŒºæ®µ ================================
 Function un.UninstallFunc
-	; ¼ì²é¿Í»§¶Ë½ø³ÌÊÇ·ñÔÚÔËĞĞ
+	; æ£€æŸ¥å®¢æˆ·ç«¯è¿›ç¨‹æ˜¯å¦åœ¨è¿è¡Œ
 	!insertmacro "NSDM_DEBUG_INFO" "${PRODUCT_CLIENT_EXE}"
 	Push "${PRODUCT_CLIENT_EXE}"
 	Call un.TerminateIfExists
@@ -107,15 +107,15 @@ Function un.UninstallFunc
 	${If} $0 == 0
 		Return
 	${ElseIf} $0 == -1
-		${nsdm.MessageBox} "dui_message_dlg" "$MBSize" "label_popup_title" "ÌáÊ¾" "label_popup_content" "ÎŞ·¨Ç¿ÖÆ½áÊø'${PRODUCT_CLIENT_EXE}'£¬ÇëÊÖ¶¯ÍË³ö£¡" ${MB_OKCANCEL} $R0
+		${nsdm.MessageBox} "dui_message_dlg" "$MBSize" "label_popup_title" "æç¤º" "label_popup_content" "æ— æ³•å¼ºåˆ¶ç»“æŸ'${PRODUCT_CLIENT_EXE}'ï¼Œè¯·æ‰‹åŠ¨é€€å‡ºï¼" ${MB_OKCANCEL} $R0
 		Return
 	${EndIf}
 
-	!insertmacro "NSDM_DEBUG_INFO" "¿ªÊ¼Ğ¶ÔØ"
+	!insertmacro "NSDM_DEBUG_INFO" "å¼€å§‹å¸è½½"
 	${nsdm.SetControlAttr} "btn_close" 1 "bdisable"
 	${nsdm.SelectPage} "wnd_uninstallling"
 
-	; É¾³ı×¢²á±íĞÅÏ¢
+	; åˆ é™¤æ³¨å†Œè¡¨ä¿¡æ¯
 	SetRegView 32
 	DeleteRegKey ${PRODUCT_ROOT_KEY} "${PRODUCT_SUB_KEY}"
 	DeleteRegKey ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}"
@@ -123,14 +123,14 @@ Function un.UninstallFunc
 	${nsdm.SetControlAttr} "progress_uninstalling" $UninstallProgress "value"
 	${nsdm.SetControlAttr} "label_install_percent" "$UninstallProgress%" "text"
 
-	; É¾³ı¿ì½İ·½Ê½
+	; åˆ é™¤å¿«æ·æ–¹å¼
 	Call un.DeleteShortCut
 	IntOp $UninstallProgress $UninstallProgress + 2
 	${nsdm.SetControlAttr} "progress_uninstalling" $UninstallProgress "value"
 	${nsdm.SetControlAttr} "label_install_percent" "$UninstallProgress%" "text"
 
-	${nsdm.SetControlAttr} "btn_close" 1 "bdisable" ; ÊÍ·ÅÎÄ¼şÖĞ½ûÖ¹ÍË³ö
-	; ºóÌ¨É¾³ıÎÄ¼ş
+	${nsdm.SetControlAttr} "btn_close" 1 "bdisable" ; é‡Šæ”¾æ–‡ä»¶ä¸­ç¦æ­¢é€€å‡º
+	; åå°åˆ é™¤æ–‡ä»¶
 	GetFunctionAddress $0 un.RemoveFiles
 	BgWorker::CallAndWait
 
@@ -138,15 +138,15 @@ Function un.UninstallFunc
 	
 	Delete "$INSTDIR\${PRODUCT_UNINSTALL_NAME}"
 	; RMDir /r "$INSTDIR"
-	RMDir "$INSTDIR" ; ·Ç¿Õ²ÅÉ¾³ı
-	${nsdm.SetControlAttr} "btn_close" 0 "bdisable" ; ÊÍ·ÅÎÄ¼şÖĞ½ûÖ¹ÍË³ö
+	RMDir "$INSTDIR" ; éç©ºæ‰åˆ é™¤
+	${nsdm.SetControlAttr} "btn_close" 0 "bdisable" ; é‡Šæ”¾æ–‡ä»¶ä¸­ç¦æ­¢é€€å‡º
 
 	!insertmacro PostPasEvent ${PAS_UNINSTALL_SUCCESS}
 	
 	${nsdm.SetControlAttr} "label_install_percent" "100%" "text"
 	GetFunctionAddress $MessageBoxOkTimer un.OnMessageBoxOkTimer
 	${nsdm.CreateTimer} $MessageBoxOkTimer 1000
-	;${nsdm.MessageBox} "dui_message_dlg" "$MBSize" "label_popup_title" "ÌáÊ¾" "label_popup_content" "Ğ¶ÔØ³É¹¦£¡" ${MB_OKCANCEL} $0
+	;${nsdm.MessageBox} "dui_message_dlg" "$MBSize" "label_popup_title" "æç¤º" "label_popup_content" "å¸è½½æˆåŠŸï¼" ${MB_OKCANCEL} $0
 FunctionEnd
 
 Function un.OnMessageBoxOkTimer
@@ -166,7 +166,7 @@ Function un.DeleteShortCut
   		ExecShell "taskbarunpin" "$R1"
   		Delete "$R1"
 	${ElseIf} ${AtLeastWin7}
-        ; Ê¹ÓÃ²å¼şÉ¾³ıÈÎÎñÀ¸Í¼±ê£¬²»Ö§³ÖvistaÏµÍ³
+        ; ä½¿ç”¨æ’ä»¶åˆ é™¤ä»»åŠ¡æ å›¾æ ‡ï¼Œä¸æ”¯æŒvistaç³»ç»Ÿ
         StrCpy $R1 "$QUICKLAUNCH\User Pinned\TaskBar"
         ${StdUtils.InvokeShellVerb} $0 "$R1" "${PRODUCT_NAME}.lnk" ${StdUtils.Const.ShellVerb.UnpinFromTaskbar}
     ${Else}
@@ -174,9 +174,9 @@ Function un.DeleteShortCut
   	${EndIf}
 
 	Delete "$SMPROGRAMS\${PRODUCT_NAME}\${PRODUCT_NAME}.lnk"
-	Delete "$SMPROGRAMS\${PRODUCT_NAME}\Ğ¶ÔØ${PRODUCT_NAME}.lnk"
-  	Delete "$DESKTOP\${PRODUCT_NAME}.lnk" ; ×ÀÃæÍ¼±ê
-  	Delete "$SMSTARTUP\${PRODUCT_NAME}.lnk" ; ¿ª»úÆô¶¯Ïî
+	Delete "$SMPROGRAMS\${PRODUCT_NAME}\å¸è½½${PRODUCT_NAME}.lnk"
+  	Delete "$DESKTOP\${PRODUCT_NAME}.lnk" ; æ¡Œé¢å›¾æ ‡
+  	Delete "$SMSTARTUP\${PRODUCT_NAME}.lnk" ; å¼€æœºå¯åŠ¨é¡¹
   	RMDir /r /REBOOTOK "$SMPROGRAMS\${PRODUCT_NAME}"
 
   	${un.RefreshShellIcons}
@@ -218,7 +218,7 @@ FunctionEnd
 Function un.DMPage
 	StrCpy $InstallState "doing"
 
-	!insertmacro NSDM_DEBUG_INFO "³õÊ¼»¯DM¿â"
+	!insertmacro NSDM_DEBUG_INFO "åˆå§‹åŒ–DMåº“"
 	${nsdm.InitSkinEngine} ${DM_SKIN_PATH} "dui_uninstall_wnd" "uninstall_frame" $NSDM_OUT
 
 	!insertmacro NSDM_DEBUG_INFO "$NSDM_OUT"
@@ -228,7 +228,7 @@ Function un.DMPage
 	!insertmacro PostPasEvent ${PAS_BEGIN_UNINSTALL}
 
 	${nsdm.Run}
-	!insertmacro NSDM_DEBUG_INFO "Ğ¶ÔØDM¿â"
+	!insertmacro NSDM_DEBUG_INFO "å¸è½½DMåº“"
 
 	!insertmacro PostSessionData
 	${nscurl.WaitDone} 5000 $0
@@ -240,10 +240,10 @@ Function un.InitDialog
 FunctionEnd
 
 Function un.onInit
-	; ¼ì²éĞ¶ÔØ½ø³ÌÊÇ·ñÔÚÔËĞĞ
+	; æ£€æŸ¥å¸è½½è¿›ç¨‹æ˜¯å¦åœ¨è¿è¡Œ
 	!insertmacro "CheckSetupRunning" ${SETUP_MUTEX_NAME} $NSDM_OUT
 	${If} $NSDM_OUT == 1
-		MessageBox MB_OK|MB_ICONEXCLAMATION "°²×°»òĞ¶ÔØ³ÌĞòÒÑ¾­ÔÚÔËĞĞ¡£"
+		MessageBox MB_OK|MB_ICONEXCLAMATION "å®‰è£…æˆ–å¸è½½ç¨‹åºå·²ç»åœ¨è¿è¡Œã€‚"
    		Abort
 	${EndIf}
 
@@ -257,21 +257,21 @@ Function un.onInit
 FunctionEnd
 
 Function un.BindUnInstUIControls
-	; È«¾Ö
+	; å…¨å±€
 	GetFunctionAddress $0 "un.OnExitDUISetup"
 	${nsdm.RegisterCommandNotify} "btn_close" $0
 	
 	GetFunctionAddress $0 "un.OnBtnMin"
 	${nsdm.RegisterCommandNotify} "btn_min" $0
 
-	; Ğ¶ÔØ¹ı³Ì´°¿Ú
+	; å¸è½½è¿‡ç¨‹çª—å£
 	GetFunctionAddress $0 "un.OnExitDUISetup"
 	${nsdm.RegisterCommandNotify} "btn_uninstall_cancel" $0
 
 	GetFunctionAddress $0 "un.UninstallFunc"
 	${nsdm.RegisterCommandNotify} "btn_uninstall_ok" $0
 
-	; Ğ¶ÔØÍê³É´°¿Ú
+	; å¸è½½å®Œæˆçª—å£
 	GetFunctionAddress $0 "un.OnBtnCommit"
 	${nsdm.RegisterCommandNotify} "btn_ok2" $0
 
@@ -280,18 +280,18 @@ Function un.BindUnInstUIControls
 FunctionEnd
 
 Function un.OnBtnCommit
-	; Òş²ØÖ÷´°¿Ú
+	; éšè—ä¸»çª—å£
 	${nsdm.SetWindowAttr} "0" "bvisible"
 
-	; ÉÏ±¨Ğ¶ÔØ·´À¡
+	; ä¸ŠæŠ¥å¸è½½åé¦ˆ
 	Call un.BuildUserFeedback
 
-	; ÍË³ö
+	; é€€å‡º
 	Call un.OnExitDUISetup
 FunctionEnd
 
 Function un.BuildUserFeedback
-	; »ñÈ¡ÓÃ»§·´À¡ĞÅÏ¢
+	; è·å–ç”¨æˆ·åé¦ˆä¿¡æ¯
 	${nsdm.GetControlAttr} "btn_reason_reinstall" "check" $1
 	${nsdm.GetControlAttr} "btn_reason_hinder_gaming" "check" $2
 	${nsdm.GetControlAttr} "btn_reason_useless" "check" $3
@@ -300,7 +300,7 @@ Function un.BuildUserFeedback
 	${nsdm.GetControlAttr} "btn_reason_performance" "check" $6
 	${nsdm.GetControlAttr} "edit_reason" "text" $7
 	${nsdm.GetControlAttr} "edit_contact_info" "text" $8
-	!insertmacro "NSDM_DEBUG_INFO" "Ğ¶ÔØÔ­Òò£º $7"
+	!insertmacro "NSDM_DEBUG_INFO" "å¸è½½åŸå› ï¼š $7"
 	nsutil::NSUrlEncode "$7"
 	Pop $7
 	nsutil::NSUrlEncode "$8"
@@ -353,7 +353,7 @@ Function un.OnBtnMin
 FunctionEnd
 
 Function un.TerminateIfExists
-	Pop $R2 ; ½ø³ÌÃû¼¯ºÏ
+	Pop $R2 ; è¿›ç¨‹åé›†åˆ
 
 	!insertmacro "ProcessDetect" "$R2" ";" "$INSTDIR"
 	Pop $0
@@ -362,7 +362,7 @@ Function un.TerminateIfExists
 		Return
 	${EndIf}
 
-	${nsdm.MessageBox} "dui_message_dlg" "$MBSize" "label_popup_title" "ÌáÊ¾" "label_popup_content" "¼ì²âµ½${PRODUCT_NAME}ÕıÔÚÔËĞĞ£¬µã»÷[È·¶¨]Ç¿ÖÆ½áÊø½ø³Ì£¡" ${MB_OKCANCEL} $0
+	${nsdm.MessageBox} "dui_message_dlg" "$MBSize" "label_popup_title" "æç¤º" "label_popup_content" "æ£€æµ‹åˆ°${PRODUCT_NAME}æ­£åœ¨è¿è¡Œï¼Œç‚¹å‡»[ç¡®å®š]å¼ºåˆ¶ç»“æŸè¿›ç¨‹ï¼" ${MB_OKCANCEL} $0
 	${If} $0 == ${IDOK}
 		${Do}
 			!insertmacro "ExeEnd" "$R2" ";" "$INSTDIR"
@@ -374,7 +374,7 @@ Function un.TerminateIfExists
 		${LoopWhile} $1 == 1
 
 		${If} $1 == -1
-			${nsdm.MessageBox} "dui_message_dlg" "$MBSize" "label_popup_title" "ÌáÊ¾" "label_popup_content" "¼ì²âµ½${PRODUCT_NAME}ÕıÔÚÔËĞĞ£¬ÎŞ·¨Ç¿ÖÆ½áÊø½ø³Ì£¡" ${MB_OKCANCEL} $0
+			${nsdm.MessageBox} "dui_message_dlg" "$MBSize" "label_popup_title" "æç¤º" "label_popup_content" "æ£€æµ‹åˆ°${PRODUCT_NAME}æ­£åœ¨è¿è¡Œï¼Œæ— æ³•å¼ºåˆ¶ç»“æŸè¿›ç¨‹ï¼" ${MB_OKCANCEL} $0
 			Push 0
 		${Else}
 			Push 1

@@ -12,8 +12,7 @@ file(GLOB ROOT_HEADER 									inc/*h;inc/*.rc)
 file(GLOB ROOT_SOURCE 									src/*.cpp;src/*.c)
 
 file(GLOB COMMON_SOURCE     						${PROJDIR}/3rdParty/common/src/Utils.cpp)
-file(GLOB NSIS_SOURCE     					    ${PROJDIR}/3rdParty/nsis/include/output_debug.cpp
-                                        ${PROJDIR}/3rdParty/nsis/include/pluginapi.c)
+file(GLOB NSIS_SOURCE     				${PROJDIR}/3rdParty/nsis/pluginapi.c)
 
 source_group("inc" 								      FILES 	${ROOT_HEADER})
 source_group("src"								      FILES 	${ROOT_SOURCE})
@@ -30,7 +29,7 @@ use_precompiled_header(nsCurl "${CMAKE_CURRENT_SOURCE_DIR}/inc/StdAfx.h"
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/inc
                     )                              
 INCLUDE_DIRECTORIES(${PROJDIR}/3rdParty/easy_libcurl/include
-                    ${PROJDIR}/3rdParty/nsis/include
+                    ${PROJDIR}/3rdParty/
                     ${PROJDIR}/3rdParty/common/include)
 
 #-------------------------------------------------------------------------------------------------------------------

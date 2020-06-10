@@ -1,2 +1,0 @@
-svn://git.oschina.net/hgy413/REDM/DmMain
-将DMMain导入到此目录

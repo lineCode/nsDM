@@ -3,11 +3,11 @@
 
 #include "stdafx.h"
 
-#include "pluginapi.h"
+#include "nsis/pluginapi.h"
 #include "nsDM.h"
 #include "nsDmMsg.h"
 #include "SkinEngine.h"
-#include "output_debug.h"
+#include "Logging.h"
 #include "Utils.h"
 
 #pragma region DM include
@@ -69,6 +69,7 @@ static UINT_PTR PluginCallback(enum NSPIM msg)
 NSISFUNC(NSInitSkinEngine)
 {
 	EXDLL_INIT();
+ 
 	REGSITER_CALLBACK(g_hInstance);
 
 	g_pluginParms = extra;
@@ -79,13 +80,17 @@ NSISFUNC(NSInitSkinEngine)
 	}
 	
 	NSDM_DEBUG_INFO("\n");
+
+#if WAITING_FOR_DEBUGGER_TO_ATTACH
+	MessageBox(NULL, L"Waiting for debugger to attach", L"Info", MB_OK | MB_ICONEXCLAMATION);
+#endif
 	
 	TCHAR skinPath[MAX_PATH] = {0};
 	TCHAR xmlid[128] = {0};
 	TCHAR wndName[128] = {0};
-	popstring(skinPath, sizeof(skinPath)); // 皮肤路径
-	popstring(xmlid, sizeof(xmlid)); // 主窗口xml id
-	popstring(wndName, sizeof(wndName)); // 窗口控件名
+	popstringn(skinPath, _ARRAYSIZE(skinPath)); // 皮肤路径
+	popstringn(xmlid, _ARRAYSIZE(xmlid)); // 主窗口xml id
+	popstringn(wndName, _ARRAYSIZE(wndName)); // 窗口控件名
 	NSDM_DEBUG_INFO("Load skin '%s', xmlid '%s' \n", 
 		Utils::unicode_to_ansi(skinPath).c_str(), 
 		Utils::unicode_to_ansi(xmlid).c_str());
@@ -121,7 +126,7 @@ NSISFUNC(NSFindControl)
 	//REGSITER_CALLBACK(g_hInstance);
 
 	TCHAR controlName[128] = {0};
-	popstring(controlName, sizeof(controlName));
+	popstringn(controlName, _ARRAYSIZE(controlName));
 	assert(g_pFrame);
 	auto controlWnd = g_pFrame->FindChildByName(controlName);
 	if (controlWnd)
@@ -141,7 +146,7 @@ NSISFUNC(NSRegisterCommandNotify)
 	//REGSITER_CALLBACK(g_hInstance);
 
 	TCHAR controlName[MAX_PATH] = {0};
-	popstring(controlName, sizeof(controlName));
+	popstringn(controlName, _ARRAYSIZE(controlName));
 	int callback_addr = popint();
 	g_pFrame->SaveToControlCallbackMap(controlName, callback_addr);
 	NSDM_DEBUG_INFO("control '%s' bind to address 0x%x \n", 
@@ -158,11 +163,11 @@ NSISFUNC(NSShowLicense)
 	TCHAR title[512] = {0};
 	TCHAR content_id[128] = {0};
 	TCHAR content[1024] = {0};
-	popstring(xmlid, sizeof(xmlid));
-	popstring(title_id, sizeof(title_id));
-	popstring(title, sizeof(title));
-	popstring(content_id, sizeof(content_id));
-	popstring(content, sizeof(content));
+	popstringn(xmlid, _ARRAYSIZE(xmlid));
+	popstringn(title_id, _ARRAYSIZE(title_id));
+	popstringn(title, _ARRAYSIZE(title));
+	popstringn(content_id, _ARRAYSIZE(content_id));
+	popstringn(content, _ARRAYSIZE(content));
 	pushint(g_pFrame->ShowLicense(xmlid, title_id, title, content_id, content));
 }
 
@@ -175,9 +180,9 @@ NSISFUNC(NSSetControlAttr)
 	TCHAR controlData[512] = {0};
 	TCHAR dataType[128] = {0};
 	
-	popstring(controlName, sizeof(controlName));
-	popstring(controlData, sizeof(controlData));
-	popstring(dataType, sizeof(dataType));
+	popstringn(controlName, _ARRAYSIZE(controlName));
+	popstringn(controlData, _ARRAYSIZE(controlData));
+	popstringn(dataType, _ARRAYSIZE(dataType));
 
 	assert(g_pFrame);
 	auto pControl = g_pFrame->FindChildByName(controlName);
@@ -227,8 +232,8 @@ NSISFUNC(NSGetControlAttr)
 
 	TCHAR ctlName[128] = {0};
 	TCHAR dataType[128] = {0};
-	popstring(ctlName, sizeof(ctlName));
-	popstring(dataType, sizeof(dataType));
+	popstringn(ctlName, _ARRAYSIZE(ctlName));
+	popstringn(dataType, _ARRAYSIZE(dataType));
 
 	auto pControl = g_pFrame->FindChildByName(ctlName);
 	if (!pControl)
@@ -272,8 +277,8 @@ NSISFUNC(NSSetWindowAttr)
 	TCHAR controlData[512] = {0};
 	TCHAR dataType[128] = {0};
 
-	popstring(controlData, sizeof(controlData));
-	popstring(dataType, sizeof(dataType));
+	popstringn(controlData, _ARRAYSIZE(controlData));
+	popstringn(dataType, _ARRAYSIZE(dataType));
 
 	if (_tcsicmp(L"possize", dataType) == 0)
 	{
@@ -299,7 +304,7 @@ NSISFUNC(NSGetWindowAttr)
 	//REGSITER_CALLBACK(g_hInstance);
 
 	TCHAR ctlName[128] = {0};
-	popstring(ctlName, sizeof(ctlName));
+	popstringn(ctlName, _ARRAYSIZE(ctlName));
 	pushstring(L"error");
 }
 
@@ -347,9 +352,9 @@ NSISFUNC(NSSendMessage)
 	TCHAR msgID[128] = {0};
 	TCHAR wParam[128] = {0};
 	TCHAR lParam[512] = {0};
-	popstring( msgID,sizeof(msgID));
-	popstring( wParam,sizeof(wParam));
-	popstring( lParam ,sizeof(lParam));
+	popstringn( msgID,_ARRAYSIZE(msgID));
+	popstringn( wParam,_ARRAYSIZE(wParam));
+	popstringn( lParam ,_ARRAYSIZE(lParam));
 
 	if (_tcsicmp(msgID, _T("UM_NSDM_MIN")) == 0)
 		g_pFrame->PostMessage(WM_SYSCOMMAND, SC_MINIMIZE);
@@ -411,7 +416,7 @@ NSISFUNC(NSSelectFolderDialog)
 	//REGSITER_CALLBACK(g_hInstance);
 
 	TCHAR title[128] = {0};
-	popstring(title, sizeof(title));
+	popstringn(title, _ARRAYSIZE(title));
 	
 	assert(g_pFrame);
 	auto select_path = g_pFrame->SelectFolderDialog(title);
@@ -460,12 +465,12 @@ NSISFUNC(NSMessageBox)
 	TCHAR title[512] = {0};
 	TCHAR content_id[128] = {0};
 	TCHAR content[1024] = {0};
-	popstring(xmlid, sizeof(xmlid));
-	popstring(size, sizeof(size));
-	popstring(title_id, sizeof(title_id));
-	popstring(title, sizeof(title));
-	popstring(content_id, sizeof(content_id));
-	popstring(content, sizeof(content));
+	popstringn(xmlid, _ARRAYSIZE(xmlid));
+	popstringn(size, _ARRAYSIZE(size));
+	popstringn(title_id, _ARRAYSIZE(title_id));
+	popstringn(title, _ARRAYSIZE(title));
+	popstringn(content_id, _ARRAYSIZE(content_id));
+	popstringn(content, _ARRAYSIZE(content));
 	int type = popint();
 
 	std::vector<std::wstring> vtsize;
@@ -487,9 +492,9 @@ NSISFUNC(NSVerifyCharaters)
 	EXDLL_INIT();
 	//REGSITER_CALLBACK(g_hInstance);
 
-	char characters[512];
+	TCHAR characters[512];
 
-	int ret = popstringA(characters,sizeof(characters));
+	int ret = popstringn(characters, _ARRAYSIZE(characters));
 	if (ret != 0){
 		/*we have error*/
 		pushint(0);
@@ -522,7 +527,7 @@ NSISFUNC(NSSelectPage)
 	EXDLL_INIT();
 	//REGSITER_CALLBACK(g_hInstance);
 	TCHAR name[128] = {0};
-	popstring(name, sizeof(name));
+	popstringn(name, _ARRAYSIZE(name));
 	g_pFrame->SelectPanel(name);
 }
 

@@ -3,7 +3,7 @@
 
 #include "stdafx.h"
 
-#include "pluginapi.h"
+#include "nsis/pluginapi.h"
 #include "nsDefine.h"
 #include "base/system/system_util.h"
 #include "base/string/string_util.h"
@@ -65,7 +65,7 @@ NSISFUNC(NSGetMachineId)
 	char mid[64] = {0};
 	strcpy_s(mid, str_mid.c_str());
 
-	pushstringA(mid);
+	PushStringA(mid);
 }
 
 NSISFUNC(NSCreateGuid)
@@ -120,7 +120,7 @@ NSISFUNC(NSGetIve)
 	REGSITER_CALLBACK(g_hInstance);
 
 	TCHAR exe_path[MAX_PATH] = {0};
-	popstring(exe_path, sizeof(exe_path));
+	popstringn(exe_path, sizeof(exe_path));
 
 	std::wstring file, product;
 	if (Utils::get_exe_version(exe_path, file, product))
@@ -171,10 +171,10 @@ NSISFUNC(NSUrlEncode)
 	REGSITER_CALLBACK(g_hInstance);
 
 	TCHAR data[1024] = {0};
-	popstring(data, sizeof(data));
+	popstringn(data, sizeof(data));
 
 	const std::string& result = base::CUrlEncode::EscapeURL(data);
-	pushstringA(result.c_str());
+	PushStringA(result.c_str());
 }
 
 NSISFUNC(NSUrlDecode)
@@ -183,7 +183,7 @@ NSISFUNC(NSUrlDecode)
 	REGSITER_CALLBACK(g_hInstance);
 
 	TCHAR data[1024] = {0};
-	popstring(data, sizeof(data));
+	popstringn(data, sizeof(data));
 	
 	pushstring(base::CUrlEncode::DescapeURL(Utils::unicode_to_ansi(data).c_str()).c_str());
 }
@@ -195,8 +195,8 @@ NSISFUNC(NSKillProcess)
 
 	TCHAR exeName[MAX_PATH] = {0};
 	TCHAR filePath[MAX_PATH] = {0};
-	popstring(exeName, sizeof(exeName));
-	popstring(filePath, sizeof(filePath));
+	popstringn(exeName, sizeof(exeName));
+	popstringn(filePath, sizeof(filePath));
 
 	std::wstring szExeName = std::wstring(exeName);
 	std::wstring szFilePath = std::wstring(filePath);
@@ -211,8 +211,8 @@ NSISFUNC(NSFindProcess)
 
 	TCHAR exeName[MAX_PATH] = {0};
 	TCHAR filePath[MAX_PATH] = {0};
-	popstring(exeName, sizeof(exeName));
-	popstring(filePath, sizeof(filePath));
+	popstringn(exeName, sizeof(exeName));
+	popstringn(filePath, sizeof(filePath));
 
 	std::wstring szExeName = std::wstring(exeName);
 	std::wstring szFilePath = std::wstring(filePath);
@@ -259,12 +259,12 @@ NSISFUNC(NSCreateSchedule)
 	TCHAR runParam[128] = {0};
 	TCHAR userName[128] = {0};
 	unsigned int minInterval = 60;
-	popstring(taskName, sizeof(taskName));
-	popstring(comment, sizeof(comment));
-	popstring(workDir, sizeof(workDir));
-	popstring(appName, sizeof(appName));
-	popstring(runParam, sizeof(runParam));
-	//popstring(userName, sizeof(userName));
+	popstringn(taskName, sizeof(taskName));
+	popstringn(comment, sizeof(comment));
+	popstringn(workDir, sizeof(workDir));
+	popstringn(appName, sizeof(appName));
+	popstringn(runParam, sizeof(runParam));
+	//popstringn(userName, sizeof(userName));
 	DWORD dwLen = _countof(userName);
 	::GetUserName(userName, &dwLen);
 	minInterval = static_cast<unsigned int>(popint());
@@ -288,7 +288,7 @@ NSISFUNC(NSDetectSchedule)
 	REGSITER_CALLBACK(g_hInstance);
 
 	TCHAR taskName[128] = {0};
-	popstring(taskName, sizeof(taskName));
+	popstringn(taskName, sizeof(taskName));
 
 	std::wstring szTaskName = std::wstring(taskName);
 	bool bsuccess = Utils::DetectSchedule(&szTaskName);
@@ -307,12 +307,12 @@ NSISFUNC(NSUpdateSchedule)
 	TCHAR runParam[128] = {0};
 	TCHAR userName[128] = {0};
 	unsigned int minInterval = 60;
-	popstring(taskName, sizeof(taskName));
-	popstring(comment, sizeof(comment));
-	popstring(workDir, sizeof(workDir));
-	popstring(appName, sizeof(appName));
-	popstring(runParam, sizeof(runParam));
-	//popstring(userName, sizeof(userName));
+	popstringn(taskName, _ARRAYSIZE(taskName));
+	popstringn(comment, _ARRAYSIZE(comment));
+	popstringn(workDir, _ARRAYSIZE(workDir));
+	popstringn(appName, _ARRAYSIZE(appName));
+	popstringn(runParam, _ARRAYSIZE(runParam));
+	//popstringn(userName, sizeof(userName));
 	DWORD dwLen = _countof(userName);
 	::GetUserName(userName, &dwLen);
 	minInterval = static_cast<unsigned int>(popint());
@@ -336,7 +336,7 @@ NSISFUNC(NSDeleteSchedule)
 	REGSITER_CALLBACK(g_hInstance);
 
 	TCHAR taskName[128] = {0};
-	popstring(taskName, sizeof(taskName));
+	popstringn(taskName, _ARRAYSIZE(taskName));
 
 	std::wstring szTaskName = std::wstring(taskName);
 	bool bsuccess = Utils::DeleteSchedule(&szTaskName);

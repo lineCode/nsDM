@@ -27,9 +27,9 @@ Pop ${_outvar}
 	Pop ${out}
 !macroend
 
-; ����byteΪ��λ����ֵ����ʽ��Ϊ���ʵ�λ���ַ���
+; 将以byte为单位的数值，格式化为合适单位的字符串
 !macro FormatSizeString size out
-	; ��$0��$1����ֵ
+	; 给$0和$1赋初值
 	System::Int64Op ${size} + 0
 	Pop $0
 	StrCpy $1 "Bytes"
@@ -56,7 +56,7 @@ Pop ${_outvar}
 	StrCpy ${out} "$0$1"
 !macroend
 
-; �жϰ�װ/ж�ؽ����Ƿ�������
+; 判断安装/卸载进程是否在运行
 !macro CheckSetupRunning mutex_name out
 	System::Call 'kernel32::CreateMutexA(i 0, i 0, t "${mutex_name}") i .r1 ?e'
 	Pop $R0
@@ -68,14 +68,14 @@ Pop ${_outvar}
 	${EndIf}
 !macroend
 
-; ����exe���̣����ж�����̣���${flag}�ָ�
+; 结束exe进程，如有多个进程，以${flag}分隔
 !macro ExeEnd  exestr flag exe_folder
-; $0 �ܳ�
-; $1 ����
-; $2 Ŀ���ַ���
-; $3 ��ʱ�Ƚϱ���
-; $4 �ָ�������
-; $5 ����ֵ 1 �ҵ����ɹ���������; 0 û���ҵ�����; -1 �ҵ����̵��ǽ���ʧ��
+; $0 总长
+; $1 索引
+; $2 目标字符串
+; $3 临时比较变量
+; $4 分隔符长度
+; $5 返回值 1 找到并成功结束进程; 0 没有找到进程; -1 找到进程但是结束失败
 	StrLen $0 "${exestr}"
 	IntOp $1 0 + 0
 	StrCpy $2 ""
@@ -85,20 +85,20 @@ Pop ${_outvar}
 	${ForEach} $1 0 $0 + 1
 		StrCpy $3 "${exestr}" $4 $1
 		${If} $3 != "${flag}"
-			; ƴ�ӵ�ǰ������
+			; 拼接当前进程名
 			StrCpy $2 "$2$3"
-			; ���һ��ѭ��������ҪContinue
+			; 最后一次循环，不需要Continue
 			${If} $1 != $0
 				${Continue}
 			${EndIf}
 		${EndIf}
 
 		!insertmacro "NSDM_DEBUG_INFO" "ExeEnd->$2"
-		; ȡ�������Ƿָ�������ʾ$2�д洢���Ѿ���һ��·������
+		; 取出来的是分隔符，表示$2中存储的已经是一个路径名了
 		nsutil::NSFindProcess "$2" "${exe_folder}"
 		Pop $R0
 		${If} $R0 <> 1
-			; ��ǰ���̲����ڻ����ѱ�������Ѱ����һ������
+			; 当前进程不存在或者已被结束，寻找下一个进程
 			StrCpy $2 ""
 			${Continue}
 		${Else}
@@ -117,14 +117,14 @@ Pop ${_outvar}
 	Push $5
 !macroend
 
-; ���exe���̣����ж�����̣���flag�ָ�
+; 检测exe进程，如有多个进程，以flag分隔
 !macro ProcessDetect  exestr flag exe_folder
-; $0 �ܳ�
-; $1 ����
-; $2 Ŀ���ַ���
-; $3 ��ʱ�Ƚϱ���
-; $4 �ָ�������
-; $5 ����ֵ 1 �ҵ�����; 0 û���ҵ�����;
+; $0 总长
+; $1 索引
+; $2 目标字符串
+; $3 临时比较变量
+; $4 分隔符长度
+; $5 返回值 1 找到进程; 0 没有找到进程;
 	IntOp $1 0 + 0
 	StrCpy $2 ""
 	StrLen $4 "${flag}"
@@ -134,20 +134,20 @@ Pop ${_outvar}
 	${ForEach} $1 0 $0 + 1
 		StrCpy $3 "${exestr}" $4 $1
 		${If} $3 != "${flag}"
-			; ƴ�ӵ�ǰ������
+			; 拼接当前进程名
 			StrCpy $2 "$2$3"
-			; ���һ��ѭ��������ҪContinue
+			; 最后一次循环，不需要Continue
 			${If} $1 != $0
 				${Continue}
 			${EndIf}
 		${EndIf}
 
-		; ȡ�������Ƿָ�������ʾ$2�д洢���Ѿ���һ��·������
+		; 取出来的是分隔符，表示$2中存储的已经是一个路径名了
 		!insertmacro "NSDM_DEBUG_INFO" "ProcessDetect->$2"
 		nsutil::NSFindProcess "$2" "${exe_folder}"
 		Pop $R0
 		${If} $R0 <> 1
-			; ��ǰ���̲����ڻ����ѱ�������Ѱ����һ������
+			; 当前进程不存在或者已被结束，寻找下一个进程
 			StrCpy $2 ""
 			${Continue}
 		${Else}
@@ -158,7 +158,7 @@ Pop ${_outvar}
 	Push $5
 !macroend
 
-; ˢ��ͼ�껺��
+; 刷新图标缓存
 ; !macro RefreshShellIcons
 ;   	; SHCNE_ASSOCCHANGED 0x08000000
 ;   	; SHCNF_IDLIST 0

@@ -2,8 +2,8 @@
 #include "SkinEngine.h"
 #include "Utils.h"
 #include "nsDefine.h"
-#include "api.h"
-#include "output_debug.h"
+#include "nsis/api.h"
+#include "Logging.h"
 #include "nsDmMsg.h"
 
 #include "DUIStatic.h"
