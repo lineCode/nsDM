@@ -1,3 +1,6 @@
 [submodule "3rdParty/zlib"]
 	path = 3rdParty/zlib
 	url = https://gitee.com/simdsoft/zlib
+[submodule "3rdParty/nsis"]
+	path = 3rdParty/nsis
+	url = https://gitee.com/simdsoft/nsis
